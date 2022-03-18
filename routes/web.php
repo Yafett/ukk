@@ -21,6 +21,11 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::middleware('role:admin')->get('/dashboard',function(){
+Route::middleware('role:admin')->get('/dashboard/admin',function(){
     return 'Dashboard';
 })->name('dashboard');
+
+
+Route::middleware('role:resepsionis')->get('/dashboard/resepsionis',function(){
+    return 'Dashboard Resepsionis';
+})->name('dashboard.resepsionis');

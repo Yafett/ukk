@@ -19,13 +19,13 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('tamu.home');
 
-Route::middleware('role:admin')->get('/dashboard/admin',function(){
-    return 'Dashboard';
-})->name('dashboard');
+Route::middleware('role:admin')->get('/admin/dashboard',function(){
+    return view('admin.dashboard');
+})->name('admin.dashboard');
 
 
-Route::middleware('role:resepsionis')->get('/dashboard/resepsionis',function(){
-    return 'Dashboard Resepsionis';
-})->name('dashboard.resepsionis');
+Route::middleware('role:resepsionis')->get('/resepsionis/dashboard',function(){
+    return view('resep.dashboard');
+})->name('resepsionis.dashboard');

@@ -22,24 +22,25 @@
   <table class="table">
 	<thead class="thead-dark">
 	  <tr>
-		<th scope="col">Tipe Kamar</th>
 		<th scope="col">Nama Fasilitas</th>
+		<th scope="col">Keterangan</th>
+		<th scope="col">Image</th>
 		<th scope="col">Aksi</th>
 	  </tr>
 	</thead>
 	<tbody>
 	
-		@foreach($fkamar as $k)
+		@foreach($fasilitas as $f)
 		
 		<tr>
-			<td>{{ $k->tipe_kamar }}</td>
-			<td>{{ $k->nama_fasilitas }}</td>
-
+			<td>{{ $f->nama_fasilitas }}</td>
+			<td>{{ $f->keterangan }}</td>
+			<td>{{ $f->image }} </td>
 			<td>
-				<a href="/admin/fkamar/edit/{{ $k->id_fkamar }}" class="btn btn-warning btn-sm active" role="button" aria-pressed="true">Edit</a>
+				<a href="/admin/fkamar/edit/{{ $f->id_fasilitas }}" class="btn btn-warning btn-sm active" role="button" aria-pressed="true">Edit</a>
 
 				
-				<a href="/admin/fkamar/hapus/{{ $k->id_fkamar }}" class="btn btn-danger btn-sm active" role="button" aria-pressed="true">Hapus</a>
+				<a href="/admin/fkamar/hapus/{{ $f->id_fasilitas }}" class="btn btn-danger btn-sm active" role="button" aria-pressed="true">Hapus</a>
 
 
 			</td>
@@ -49,7 +50,7 @@
   </table>
 
   <a href="/admin/fkamar/tambah">
-    tambah data fasilitas kamar
+    tambah data fasilitas umum
   </a> 
 
     <div class="d-flex flex-column align-items-end">

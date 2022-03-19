@@ -24,6 +24,26 @@ class FasilitasKamarController extends Controller
         return view('admin.fkamar.tambah', ['kamar' => $kamar]);
     }
     
+    public function edit($id)
+    {
+        $fkamar = DB::table('tb_fkamar')->where('id_fkamar', $id)->get();
+
+        return view('admin.fkamar.edit', ['fkamar' => $fkamar]);
+    }
+
+    public function update(Request $request)
+    {
+        
+        DB::table('tb_fkamar')->where('id_fkamar', $request->id)->update([
+        'tipe_kamar' => $request->tipe_kamar,
+        'nama_fasilitas' => $request->nama_fasilitas
+      ]);
+
+    //   dd($request);
+    
+        return redirect('admin/fkamar/dashboard');
+        
+    }
     public function store(Request $request)
     {
 
@@ -31,6 +51,14 @@ class FasilitasKamarController extends Controller
 		'tipe_kamar' => $request->tipe_kamar,
 		'nama_fasilitas' => $request->nama_fasilitas
 	]);
+
+        return redirect('admin/fkamar/dashboard');
+    }
+
+       public function hapus($id)
+    {
+
+        DB::table('tb_fkamar')->where('id_fkamar', $id)->delete();
 
         return redirect('admin/fkamar/dashboard');
     }

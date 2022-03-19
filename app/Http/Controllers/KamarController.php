@@ -54,13 +54,14 @@ class KamarController extends Controller
 
     public function hapus($id)
     {
-        // DB::table('tb_kamar')->where('id_kamar', $id)->delete();
-       
-      $tip = DB::table('tb_kamar')->where('id_kamar', $id)->value('id_kamar');
+
+        $tip = DB::table('tb_kamar')->where('id_kamar', $id)->value('id_kamar');
     
-    $nam = DB::table('tb_kamar')->where('id_kamar', $tip)->value('tipe_kamar');
+        $nam = DB::table('tb_kamar')->where('id_kamar', $tip)->value('tipe_kamar');
     
-    DB::table('tb_fkamar')->where('tipe_kamar', $nam)->delete();
+        DB::table('tb_fkamar')->where('tipe_kamar', $nam)->delete();
+
+        DB::table('tb_kamar')->where('id_kamar', $id)->delete();
 
         return redirect('admin/fkamar/dashboard');
     }

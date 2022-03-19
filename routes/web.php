@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KamarController;
 use App\Http\Controllers\FasilitasKamarController;
+use App\Http\Controllers\FasilitasController;
 
 
 /*
@@ -41,6 +42,15 @@ Route::middleware('role:admin')->get('/admin/fkamar/dashboard', [App\Http\Contro
 
 Route::get('/admin/fkamar/tambah', [App\Http\Controllers\FasilitasKamarController::class, 'tambah'])->name('admin.fkamar.tambah');
 Route::post('/admin/fkamar/tambah', [App\Http\Controllers\FasilitasKamarController::class, 'store']);
+
+Route::get('/admin/fkamar/edit/{id}', [App\Http\Controllers\FasilitasKamarController::class, 'edit'])->name('admin.fkamar.edit ');
+Route::post('/admin/fkamar/edit/{id}', [App\Http\Controllers\FasilitasKamarController::class, 'update']);
+
+Route::get('/admin/fkamar/hapus/{id}', [App\Http\Controllers\FasilitasKamarController::class, 'hapus'])->name('admin.fkamar.hapus ');
+
+// fasilitas
+Route::middleware('role:admin')->get('/admin/fasilitas/dashboard', [App\Http\Controllers\FasilitasController::class, 'index'])->name('admin.fasilitas.dashboard');
+
 
 Route::middleware('role:resepsionis')->get('/resepsionis/dashboard',function(){
     return view('resep.dashboard');

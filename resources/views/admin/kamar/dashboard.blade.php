@@ -46,10 +46,10 @@
 		@endforeach
 	</tbody>
   </table>
-{{-- 
+
   <a href="/admin/dashboard/tambah">
     tambah data kamar
-  </a> --}}
+  </a> 
 
     <div class="d-flex flex-column align-items-end">
 		<button class="btn btn-lg btn-raised btn-wave btn-icon btn-rounded mb-2 teal active" href="/admin/dashboard/tambah"> 

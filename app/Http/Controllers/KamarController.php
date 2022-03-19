@@ -12,12 +12,12 @@ class KamarController extends Controller
 
         $kamar = DB::table('tb_kamar')->get();
 
-        return view('admin.dashboard', ['kamar' => $kamar]);
+        return view('admin.kamar.dashboard', ['kamar' => $kamar]);
     }
 
     public function tambah() 
     {
-        return view('admin.tambah');
+        return view('admin.kamar.tambah');
     }
 
     public function store(Request $request)
@@ -35,7 +35,7 @@ class KamarController extends Controller
     {
         $kamar = DB::table('tb_kamar')->where('id_kamar', $id)->get();
 
-        return view('admin.edit', ['kamar' => $kamar]);
+        return view('admin.kamar.edit', ['kamar' => $kamar]);
     }
 
     public function update(Request $request)
@@ -54,9 +54,15 @@ class KamarController extends Controller
 
     public function hapus($id)
     {
-        DB::table('tb_kamar')->where('id_kamar', $id)->delete();
+        // DB::table('tb_kamar')->where('id_kamar', $id)->delete();
+       
+      $tip = DB::table('tb_kamar')->where('id_kamar', $id)->value('id_kamar');
+    
+    $nam = DB::table('tb_kamar')->where('id_kamar', $tip)->value('tipe_kamar');
+    
+    DB::table('tb_fkamar')->where('tipe_kamar', $nam)->delete();
 
-        return redirect('admin/dashboard');
+        return redirect('admin/fkamar/dashboard');
     }
     }
 

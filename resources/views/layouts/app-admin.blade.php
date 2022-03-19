@@ -47,7 +47,7 @@
                             <a class="nav-link" href="/admin/dashboard">Kamar</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" >Fasilitas Kamar</a>
+                            <a class="nav-link" href="/admin/fkamar/dashboard" >Fasilitas Kamar</a>
                         </li> 
                         <li class="nav-item">
                             <a class="nav-link" >Fasilitas Umum</a>

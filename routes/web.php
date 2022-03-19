@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KamarController;
+use App\Http\Controllers\FasilitasKamarController;
 
 
 /*
@@ -26,6 +27,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 // administator
 Route::middleware('role:admin')->get('/admin/dashboard', [App\Http\Controllers\KamarController::class, 'index'])->name('admin.dashboard');
+
 Route::get('/admin/dashboard/tambah', [App\Http\Controllers\KamarController::class, 'tambah'])->name('admin.dashboard.tambah');
 Route::post('/admin/dashboard/tambah', [App\Http\Controllers\KamarController::class, 'store']);
 
@@ -33,6 +35,12 @@ Route::get('/admin/dashboard/edit/{id}', [App\Http\Controllers\KamarController::
 Route::post('/admin/dashboard/edit/{id}', [App\Http\Controllers\KamarController::class, 'update']);
 
 Route::get('/admin/dashboard/hapus/{id}', [App\Http\Controllers\KamarController::class, 'hapus'])->name('admin.dashboard.hapus ');
+
+// fkamar
+Route::middleware('role:admin')->get('/admin/fkamar/dashboard', [App\Http\Controllers\FasilitasKamarController::class, 'index'])->name('admin.fkamar.dashboard');
+
+Route::get('/admin/fkamar/tambah', [App\Http\Controllers\FasilitasKamarController::class, 'tambah'])->name('admin.fkamar.tambah');
+Route::post('/admin/fkamar/tambah', [App\Http\Controllers\FasilitasKamarController::class, 'store']);
 
 Route::middleware('role:resepsionis')->get('/resepsionis/dashboard',function(){
     return view('resep.dashboard');

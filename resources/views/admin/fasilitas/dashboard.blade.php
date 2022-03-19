@@ -9,15 +9,8 @@
 <div class="container justify-content-right">
 
 
-
-  <h1>
-      Dashboard Administrator
-  </h1>
-
-
   
   <br>
-
 
   <table class="table">
 	<thead class="thead-dark">
@@ -35,12 +28,15 @@
 		<tr>
 			<td>{{ $f->nama_fasilitas }}</td>
 			<td>{{ $f->keterangan }}</td>
-			<td>{{ $f->image }} </td>
 			<td>
-				<a href="/admin/fkamar/edit/{{ $f->id_fasilitas }}" class="btn btn-warning btn-sm active" role="button" aria-pressed="true">Edit</a>
+			<img src="{{ url('/gambar/'). '/' . $f->image }}" class="img-fluid"> 
+			</td>
+			<td>
+				
+				<a href="/admin/fasilitas/edit/{{ $f->id_fasilitas }}" class="btn btn-warning btn-sm active" role="button" aria-pressed="true">Edit</a>
 
 				
-				<a href="/admin/fkamar/hapus/{{ $f->id_fasilitas }}" class="btn btn-danger btn-sm active" role="button" aria-pressed="true">Hapus</a>
+				<a href="/admin/fasilitas/hapus/{{ $f->id_fasilitas }}" class="btn btn-danger btn-sm active" role="button" aria-pressed="true">Hapus</a>
 
 
 			</td>
@@ -49,20 +45,14 @@
 	</tbody>
   </table>
 
-  <a href="/admin/fkamar/tambah">
-    tambah data fasilitas umum
-  </a> 
+  <div class="d-flex flex-column align-items-end">
+		
+		<a href="/admin/fasilitas/tambah" type="button" class="btn btn-success btn-circle btn-sm">+</a>
 
-    <div class="d-flex flex-column align-items-end">
-		<button class="btn btn-lg btn-raised btn-wave btn-icon btn-rounded mb-2 teal active" href="/admin/dashboard/tambah"> 
-			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
-			<line x1="12" y1="5" x2="12" y2="19"></line>
-			<line x1="5" y1="12" x2="19" y2="12"></line>
-		</svg>
-		</button>
     </div>
 
 
-
 </div>
+
+
 @endsection

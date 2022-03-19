@@ -20,6 +20,20 @@
 
 
     <title>{{ config('app.name', 'Laravel') }}</title>
+
+
+<style>
+    
+.btn-circle.btn-sm {
+    margin-top: 50px;
+            width: 45px;
+            height: 4s0px;
+            padding: 6px 0px;
+            border-radius: 35px;
+            font-size: 20px;
+            text-align: center;
+        }
+</style>
   </head>
   <body>
     
@@ -50,7 +64,7 @@
                             <a class="nav-link" href="/admin/fkamar/dashboard" >Fasilitas Kamar</a>
                         </li> 
                         <li class="nav-item">
-                            <a class="nav-link" >Fasilitas Umum</a>
+                            <a class="nav-link" href="/admin/fasilitas/dashboard">Fasilitas Umum</a>
                         </li>
                         <!-- Authentication Links -->
                         @guest

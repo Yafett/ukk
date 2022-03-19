@@ -22,6 +22,11 @@ Route::get('/', function () {
 });
 
 
+Route::get('/tes', function () {
+    return 'welcome';
+});
+
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('tamu.home');
@@ -32,10 +37,10 @@ Route::middleware('role:admin')->get('/admin/dashboard', [App\Http\Controllers\K
 Route::get('/admin/dashboard/tambah', [App\Http\Controllers\KamarController::class, 'tambah'])->name('admin.dashboard.tambah');
 Route::post('/admin/dashboard/tambah', [App\Http\Controllers\KamarController::class, 'store']);
 
-Route::get('/admin/dashboard/edit/{id}', [App\Http\Controllers\KamarController::class, 'edit'])->name('admin.dashboard.edit ');
+Route::get('/admin/dashboard/edit/{id}', [App\Http\Controllers\KamarController::class, 'edit'])->name('admin.dashboard.edit');
 Route::post('/admin/dashboard/edit/{id}', [App\Http\Controllers\KamarController::class, 'update']);
 
-Route::get('/admin/dashboard/hapus/{id}', [App\Http\Controllers\KamarController::class, 'hapus'])->name('admin.dashboard.hapus ');
+Route::get('/admin/dashboard/hapus/{id}', [App\Http\Controllers\KamarController::class, 'hapus'])->name('admin.dashboard.hapus');
 
 // fkamar
 Route::middleware('role:admin')->get('/admin/fkamar/dashboard', [App\Http\Controllers\FasilitasKamarController::class, 'index'])->name('admin.fkamar.dashboard');
@@ -51,6 +56,13 @@ Route::get('/admin/fkamar/hapus/{id}', [App\Http\Controllers\FasilitasKamarContr
 // fasilitas
 Route::middleware('role:admin')->get('/admin/fasilitas/dashboard', [App\Http\Controllers\FasilitasController::class, 'index'])->name('admin.fasilitas.dashboard');
 
+Route::get('/admin/fasilitas/tambah', [App\Http\Controllers\FasilitasController::class, 'tambah'])->name('admin.fasilitas.tambah');
+Route::post('/admin/fasilitas/tambah', [App\Http\Controllers\FasilitasController::class, 'store']);
+
+Route::get('/admin/fasilitas/edit/{id}', [App\Http\Controllers\FasilitasController::class, 'edit'])->name('admin.fasilitas.edit ');
+Route::post('/admin/fasilitas/edit/{id}', [App\Http\Controllers\FasilitasController::class, 'update']);
+
+Route::get('/admin/fasilitas/hapus/{id}', [App\Http\Controllers\FasilitasController::class, 'hapus'])->name('admin.fasilitas.hapus');
 
 Route::middleware('role:resepsionis')->get('/resepsionis/dashboard',function(){
     return view('resep.dashboard');

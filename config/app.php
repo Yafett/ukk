@@ -8,6 +8,14 @@ return [
         // ...
         Spatie\Permission\PermissionServiceProvider::class,
     ],
+    'providers' => [
+        // ...
+        'Intervention\Image\ImageServiceProvider',
+    ],
+    'aliases' => [
+        // ...
+        'Image' => 'Intervention\Image\Facades\Image',
+    ],
     /*
     |--------------------------------------------------------------------------
     | Application Name

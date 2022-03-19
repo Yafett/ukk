@@ -63,7 +63,7 @@ class KamarController extends Controller
 
         DB::table('tb_kamar')->where('id_kamar', $id)->delete();
 
-        return redirect('admin/fkamar/dashboard');
+        return redirect('admin/dashboard');
     }
     }
 

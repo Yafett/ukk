@@ -70,12 +70,29 @@
         </nav>
         
         <main class="p-4">
-            <form action="" id="myForm" method="POST" DefaultButton="pesan">
+            <form action="{{ route('home.tes') }}" id="myForm" method="POST" DefaultButton="pesan">
                 @csrf
+                    <div class="card-body">
+                        @if (session('success'))
+                             <div class="alert alert-success" role="alert">
+                                {{ session('success') }}
+                             </div>
+                         @endif
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                    <strong>Maaf</strong> Data yang anda inputkan bermasalah.<br><br>
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
+
                 <div class="row g-1">
                     <div class="col-md">
                         <div class="form-floating">
-                            <input required type="date" name="tgl_checkin" class="form-control" id="tgl_checkin" value="">
+                            <input type="date" name="tgl_checkin" class="form-control" id="tgl_checkin" value="">
                             <label for="floatingInputGrid">Tanggal Check In</label>
                         </div>
                     </div>
@@ -87,7 +104,7 @@
                     </div>
                     <div class="col-md">
                         <div class="form-floating">
-                            <input required type="number" name="jumlah_kamar" class="form-control" id="jumlah_kamar" value="">
+                            <input requ type="number" name="jumlah_kamar" class="form-control" id="jumlah_kamar" value="">
                             <label for="floatingInputGrid">Jumlah Kamar</label>
                         </div>
                     </div>
@@ -95,24 +112,20 @@
                         <div class="form-floating">
                             {{-- <a href="#" class="btn btn-primary btn-lg active" onclick="IsEmpty()" role="button" aria-pressed="true">Primary link</a> --}}
 
-                            <a class="btn btn-primary" onclick="isEmpty()" type="submit">Kirim</a>
-    
+                            <button class="btn btn-primary" onclick="isEmpty()" type="submit">Kirim</button>
+
                         </div>
                     </div>
                 </div> 
             </div>
+            
+    
 
-           
-                
-         
-            </form>
-          
-            <form class="collapse" id="myCollapsible" id="myForm" method="POST" DefaultButton="pesan">
-                @csrf
+            <div class="collapse" id="myCollapsible">
                 <div class="form-group row py-2 tmbhdikit">
                     <label for="pemesan" class="col-sm-2 col-form-label">Nama Pemesan</label>
                     <div class="col-sm-10">
-                        <input type="text" name="pemesan" class="form-control" id="pemesan" placeholder="Nama Pemesan" value="">
+                        <input required type="text" name="pemesan" class="form-control" id="pemesan" placeholder="Nama Pemesan" value="">
                     </div>
                 </div>
                 <div class="form-group row py-2">
@@ -149,12 +162,13 @@
                         <input type="button" onclick="resetForm()" class="btn btn-secondary btn-lg" value="Reset">
                     </div>
                 </div> --}}
+                <button class="btn-primary">Pesan</button>
             </form>
-
+{{-- 
             <div class="collapse" id="myCollapsible">
               <div class="card card-body">
                 Lorem ipsum dolor sit amet, consectetuer adipiscing elit...
-              </div>
+              </div> --}}
             </div>
             <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
             
@@ -166,26 +180,22 @@
     function isEmpty() {   
 
 
-        if (document.getElementById('jumlah_kamar') .value == "0") {
+
+        if (document.getElementById('jumlah_kamar').value.length > 0) {
+
+                if (document.getElementById('tgl_checkin').value.length > 0) {
+                    
+                    if (document.getElementById('tgl_checkout').value.length > 0) {
             
+                            $('#myCollapsible').collapse('show');
+
+            }
+
+            }
             
-            $('#myCollapsible').collapse({toggle: false});
 
-            $('#collapseButton').on('click', function() {
-  
-            $('#myCollapsible').collapse('toggle');
-
-            });
-
-            // alert("succedd");
-
-            // document.getElementById("dor").click();
-
-        }
-
-        return;
-
-    }
+            }
+}
             </script>
            
         </main>
@@ -193,3 +203,4 @@
         
     </body>
 </html>
+

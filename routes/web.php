@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KamarController;
 use App\Http\Controllers\FasilitasKamarController;
 use App\Http\Controllers\FasilitasController;
-
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +30,8 @@ Route::get('/tes', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('tamu.home');
+Route::post('/home', [App\Http\Controllers\HomeController::class, 'tes'])->name('home.tes');
+
 
 // administator
 Route::middleware('role:admin')->get('/admin/dashboard', [App\Http\Controllers\KamarController::class, 'index'])->name('admin.dashboard');

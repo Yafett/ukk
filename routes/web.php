@@ -18,7 +18,7 @@ use App\Http\Controllers\FasilitasController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('tamu.home');
 });
 
 

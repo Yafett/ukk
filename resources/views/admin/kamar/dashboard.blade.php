@@ -30,9 +30,9 @@
 
 			<td>
 				<a href="/admin/dashboard/edit/{{ $k->id_kamar }}" class="btn btn-warning btn-sm active" role="button" aria-pressed="true">Edit</a>
-
-				
+				<a href="/admin/dashboard/lihat/{{ $k->id_kamar }}" class="btn btn-success btn-sm active" role="button" aria-pressed="true">Lihat</a>
 				<a href="/admin/dashboard/hapus/{{ $k->id_kamar }}" class="btn btn-danger btn-sm active" role="button" aria-pressed="true">Hapus</a>
+			
 
 
 			</td>

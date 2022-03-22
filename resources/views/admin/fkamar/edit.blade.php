@@ -6,7 +6,8 @@
 
     <h3>Tambah Fasilitas Kamar</h3>
 
-<a href="admin.dashboard"> Kembali</a>
+    <a href="{{ route('admin.fkamar.dashboard') }}"> Kembali</a>
+
 
 @foreach( $fkamar as $k)
 <form action="/admin/fkamar/edit/{{ $k->id_fkamar }}" method="post">

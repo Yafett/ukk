@@ -12,7 +12,9 @@ class KamarController extends Controller
 
         $kamar = DB::table('tb_kamar')->get();
 
-        return view('admin.kamar.dashboard', ['kamar' => $kamar]);
+        $fasilitas = DB::table('tb_fkamar')->get();
+
+        return view('admin.kamar.dashboard', ['kamar' => $kamar, 'fasilitas' => $fasilitas]);
     }
 
     public function tambah() 
@@ -65,5 +67,18 @@ class KamarController extends Controller
 
         return redirect('admin/dashboard');
     }
+
+    public function lihat($id)
+    {
+        
+        $kamar = DB::table('tb_kamar')->where('id_kamar', $id)->get();
+
+        $fasilitas = DB::table('tb_fkamar')->where('id_fkamar', $id)->value('nama_fasilitas');
+
+        // $fasilitas = DB::table('tb')
+
+        return view('admin.kamar.lihat', ['kamar' => $kamar, 'fasilitas' => $fasilitas]);
+    }
+
     }
 

@@ -34,7 +34,8 @@
     <input type="submit" value="Simpan Data">
 </form>
 
-<a href="admin.dashboard"> Kembali</a>
+<a href="{{ route('admin.fkamar.dashboard') }}"> Kembali</a>
+
 
 
 

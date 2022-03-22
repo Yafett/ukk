@@ -6,7 +6,8 @@
 
     <h3>Tambah Kamar</h3>
 
-<a href="admin.dashboard"> Kembali</a>
+    <a href="{{ route('admin.dashboard') }}"> Kembali</a>
+
 
 <form action="/admin/dashboard/tambah" method="post">
     {{ csrf_field() }}

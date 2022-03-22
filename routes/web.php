@@ -44,6 +44,8 @@ Route::post('/admin/dashboard/edit/{id}', [App\Http\Controllers\KamarController:
 
 Route::get('/admin/dashboard/hapus/{id}', [App\Http\Controllers\KamarController::class, 'hapus'])->name('admin.dashboard.hapus');
 
+Route::get('/admin/dashboard/lihat/{id}', [App\Http\Controllers\KamarController::class, 'lihat'])->name('admin.dashboard.lihat  ');
+
 // fkamar
 Route::middleware('role:admin')->get('/admin/fkamar/dashboard', [App\Http\Controllers\FasilitasKamarController::class, 'index'])->name('admin.fkamar.dashboard');
 
@@ -66,6 +68,6 @@ Route::post('/admin/fasilitas/edit/{id}', [App\Http\Controllers\FasilitasControl
 
 Route::get('/admin/fasilitas/hapus/{id}', [App\Http\Controllers\FasilitasController::class, 'hapus'])->name('admin.fasilitas.hapus');
 
-Route::middleware('role:resepsionis')->get('/resepsionis/dashboard',function(){
-    return view('resep.dashboard');
-})->name('resepsionis.dashboard');
+// resepsionis
+Route::middleware('role:resepsionis')->get('/resepsionis/dashboard', [App\Http\Controllers\ResepsionisController::class, 'index'])->name('resepsionis.dashboard');
+

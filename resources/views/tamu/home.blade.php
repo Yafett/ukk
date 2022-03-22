@@ -163,7 +163,7 @@
                         <input type="button" onclick="resetForm()" class="btn btn-secondary btn-lg" value="Reset">
                     </div>
                 </div> --}} 
-                <button class="btn-primary">Konfirmasi Pemesanan</button>
+                <button class="btn btn-primary">Konfirmasi Pemesanan</button>
             </form>
 
             </div>

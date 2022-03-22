@@ -6,7 +6,8 @@
 
     <h3>Edit Kamar</h3>
 
-<a href="admin.dashboard"> Kembali</a>
+    <a href="{{ route('admin.dashboard') }}"> Kembali</a>
+
 
 @foreach($kamar as $k)
 <form action="/admin/dashboard/edit/{{ $k->id_kamar }}" method="post">

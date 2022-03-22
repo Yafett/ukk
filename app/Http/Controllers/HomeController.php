@@ -20,7 +20,7 @@ class HomeController extends Controller
     public function tes(Request $request){
 
         dd($request);
-  $request->validate([
+        $request->validate([
                 'tgl_checkout' => 'required',
                 'tgl_checkin' => 'required',
                 'jumlah_kamar' => 'required'

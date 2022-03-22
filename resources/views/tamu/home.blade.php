@@ -70,7 +70,7 @@
         </nav>
         
         <main class="p-4">
-            <form action="{{ route('home.tes') }}" id="myForm" method="POST" DefaultButton="pesan">
+            <form action="{{ route('reservasi.store') }}" id="myForm" method="POST" DefaultButton="pesan">
                 @csrf
                     <div class="card-body">
                         @if (session('success'))
@@ -92,7 +92,7 @@
                 <div class="row g-1">
                     <div class="col-md">
                         <div class="form-floating">
-                            <input type="date" name="tgl_checkin" class="form-control" id="tgl_checkin" value="">
+                            <input required type="date" name="tgl_checkin" class="form-control" id="tgl_checkin" value="">
                             <label for="floatingInputGrid">Tanggal Check In</label>
                         </div>
                     </div>
@@ -104,14 +104,12 @@
                     </div>
                     <div class="col-md">
                         <div class="form-floating">
-                            <input requ type="number" name="jumlah_kamar" class="form-control" id="jumlah_kamar" value="">
+                            <input required type="number" name="jumlah_kamar" class="form-control" id="jumlah_kamar" value="">
                             <label for="floatingInputGrid">Jumlah Kamar</label>
                         </div>
                     </div>
                     <div class="col-md">
                         <div class="form-floating">
-                            {{-- <a href="#" class="btn btn-primary btn-lg active" onclick="IsEmpty()" role="button" aria-pressed="true">Primary link</a> --}}
-
                             <button class="btn btn-primary" onclick="isEmpty()" type="submit">Kirim</button>
 
                         </div>
@@ -122,7 +120,10 @@
     
 
             <div class="collapse" id="myCollapsible">
-                <div class="form-group row py-2 tmbhdikit">
+                <div class="form-group row py-2 tmbhdikit">'
+                    <div class="h2 p-3">
+                        Form Pemesan
+                    </div>
                     <label for="pemesan" class="col-sm-2 col-form-label">Nama Pemesan</label>
                     <div class="col-sm-10">
                         <input required type="text" name="pemesan" class="form-control" id="pemesan" placeholder="Nama Pemesan" value="">
@@ -137,7 +138,7 @@
                 <div class="form-group row py-2">
                     <label for="notelp" class="col-sm-2 col-form-label">Nomor Telepon</label>
                     <div class="col-sm-10">
-                        <input type="text" name="notelp" class="form-control" id="notelp" placeholder="Nomor Telepon">
+                        <input type="number" name="notelp" class="form-control" id="notelp" placeholder="Nomor Telepon">
                     </div>
                 </div>
                 <div class="form-group row py-2">
@@ -161,14 +162,10 @@
                         <button type="submit" id="pesan" class="btn btn-lg btn btn-primary panjang mr-12">Pesan</button>
                         <input type="button" onclick="resetForm()" class="btn btn-secondary btn-lg" value="Reset">
                     </div>
-                </div> --}}
-                <button class="btn-primary">Pesan</button>
+                </div> --}} 
+                <button class="btn-primary">Konfirmasi Pemesanan</button>
             </form>
-{{-- 
-            <div class="collapse" id="myCollapsible">
-              <div class="card card-body">
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit...
-              </div> --}}
+
             </div>
             <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
             

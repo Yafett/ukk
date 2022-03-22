@@ -30,7 +30,7 @@ Route::get('/tes', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('tamu.home');
-Route::post('/home', [App\Http\Controllers\HomeController::class, 'tes'])->name('home.tes');
+Route::post('/home', [App\Http\Controllers\ReservasiController::class, 'store'])->name('reservasi.store');
 
 
 // administator

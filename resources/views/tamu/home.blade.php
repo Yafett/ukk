@@ -69,104 +69,114 @@
             </div>
         </nav>
         
-        <main class="p-4">
-            <form action="{{ route('reservasi.store') }}" id="myForm" method="POST" DefaultButton="pesan">
-                @csrf
-                    <div class="card-body">
-                        @if (session('success'))
-                             <div class="alert alert-success" role="alert">
-                                {{ session('success') }}
-                             </div>
-                         @endif
-                @if ($errors->any())
-                <div class="alert alert-danger">
-                    <strong>Maaf</strong> Data yang anda inputkan bermasalah.<br><br>
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-                @endif
-
-                <div class="row g-1">
-                    <div class="col-md">
-                        <div class="form-floating">
-                            <input required type="date" name="tgl_checkin" class="form-control" id="tgl_checkin" value="">
-                            <label for="floatingInputGrid">Tanggal Check In</label>
-                        </div>
+        @if (Route::has('login'))
+            @auth
+                
+            <main class="p-4">
+                <form action="{{ route('reservasi.store') }}" id="myForm" method="POST" DefaultButton="pesan">
+                    @csrf
+                        <div class="card-body">
+                            @if (session('success'))
+                                 <div class="alert alert-success" role="alert">
+                                    {{ session('success') }}
+                                 </div>
+                             @endif
+                    @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <strong>Maaf</strong> Data yang anda inputkan bermasalah.<br><br>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
                     </div>
-                    <div class="col-md">
-                        <div class="form-floating">
-                            <input required type="date" name="tgl_checkout" class="form-control" id="tgl_checkout" value="">
-                            <label for="floatingInputGrid">Tanggal Check Out</label>
-                        </div>
-                    </div>
-                    <div class="col-md">
-                        <div class="form-floating">
-                            <input required type="number" name="jumlah_kamar" class="form-control" id="jumlah_kamar" value="">
-                            <label for="floatingInputGrid">Jumlah Kamar</label>
-                        </div>
-                    </div>
-                    <div class="col-md">
-                        <div class="form-floating">
-                            <button class="btn btn-primary" onclick="isEmpty()" type="submit">Kirim</button>
-
-                        </div>
-                    </div>
-                </div> 
-            </div>
-            
+                    @endif
     
+                    <div class="row g-1">
+                        <div class="col-md">
+                            <div class="form-floating">
+                                <input required type="date" name="tgl_checkin" class="form-control" id="tgl_checkin" value="">
+                                <label for="floatingInputGrid">Tanggal Check In</label>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="form-floating">
+                                <input required type="date" name="tgl_checkout" class="form-control" id="tgl_checkout" value="">
+                                <label for="floatingInputGrid">Tanggal Check Out</label>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="form-floating">
+                                <input required type="number" name="jumlah_kamar" class="form-control" id="jumlah_kamar" value="">
+                                <label for="floatingInputGrid">Jumlah Kamar</label>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="form-floating">
+                                <button class="btn btn-primary" onclick="isEmpty()" type="submit">Kirim</button>
+    
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+                
+        
+    
+                <div class="collapse" id="myCollapsible">
+                    <div class="form-group row py-2 tmbhdikit">'
+                        <div class="h2 p-3">
+                            Form Pemesan
+                        </div>
+                        <label for="pemesan" class="col-sm-2 col-form-label">Nama Pemesan</label>
+                        <div class="col-sm-10">
+                            <input required type="text" name="pemesan" class="form-control" id="pemesan" placeholder="Nama Pemesan" value="">
+                        </div>
+                    </div>
+                    <div class="form-group row py-2">
+                        <label for="email" class="col-sm-2 col-form-label">E-mail</label>
+                        <div class="col-sm-10">
+                            <input type="email" name="email" class="form-control" id="email" placeholder="E-mail" value="">
+                        </div>
+                    </div>
+                    <div class="form-group row py-2">
+                        <label for="notelp" class="col-sm-2 col-form-label">Nomor Telepon</label>
+                        <div class="col-sm-10">
+                            <input type="number" name="notelp" class="form-control" id="notelp" placeholder="Nomor Telepon">
+                        </div>
+                    </div>
+                    <div class="form-group row py-2">
+                        <label for="tamu" class="col-sm-2 col-form-label">Nama Tamu</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="tamu" class="form-control" id="tamu" placeholder="Nama Tamu">
+                        </div>
+                    </div>
+                    <div class="form-group row py-2">
+                        <label for="tipe_kamar" class="col-sm-2 col-form-label">Tipe Kamar</label>
+                        <div class="col-sm-10">
+                            <select name="tipe_kamar" id="tipe_kamar" class="form-control">
+                                <option selected class="form-select form-check disabled text-muted  " aria-label="disabled select example" disabled>Pilih salah satu tipe kamar</option>
+                                <option value="superior">Superior</option>
+                                <option value="deluxe">Deluxe</option>
+                            </select>
+                        </div>
+                    </div>
+                    {{-- <div class="form-group row py-2">
+                        <div class="col-sm-10 offset-md-2 mt-2">
+                            <button type="submit" id="pesan" class="btn btn-lg btn btn-primary panjang mr-12">Pesan</button>
+                            <input type="button" onclick="resetForm()" class="btn btn-secondary btn-lg" value="Reset">
+                        </div>
+                    </div> --}} 
+                    <button class="btn btn-primary">Konfirmasi Pemesanan</button>
+                </form>
+    
+                </div>
 
-            <div class="collapse" id="myCollapsible">
-                <div class="form-group row py-2 tmbhdikit">'
-                    <div class="h2 p-3">
-                        Form Pemesan
-                    </div>
-                    <label for="pemesan" class="col-sm-2 col-form-label">Nama Pemesan</label>
-                    <div class="col-sm-10">
-                        <input required type="text" name="pemesan" class="form-control" id="pemesan" placeholder="Nama Pemesan" value="">
-                    </div>
-                </div>
-                <div class="form-group row py-2">
-                    <label for="email" class="col-sm-2 col-form-label">E-mail</label>
-                    <div class="col-sm-10">
-                        <input type="email" name="email" class="form-control" id="email" placeholder="E-mail" value="">
-                    </div>
-                </div>
-                <div class="form-group row py-2">
-                    <label for="notelp" class="col-sm-2 col-form-label">Nomor Telepon</label>
-                    <div class="col-sm-10">
-                        <input type="number" name="notelp" class="form-control" id="notelp" placeholder="Nomor Telepon">
-                    </div>
-                </div>
-                <div class="form-group row py-2">
-                    <label for="tamu" class="col-sm-2 col-form-label">Nama Tamu</label>
-                    <div class="col-sm-10">
-                        <input type="text" name="tamu" class="form-control" id="tamu" placeholder="Nama Tamu">
-                    </div>
-                </div>
-                <div class="form-group row py-2">
-                    <label for="tipe_kamar" class="col-sm-2 col-form-label">Tipe Kamar</label>
-                    <div class="col-sm-10">
-                        <select name="tipe_kamar" id="tipe_kamar" class="form-control">
-                            <option selected class="form-select form-check disabled text-muted  " aria-label="disabled select example" disabled>Pilih salah satu tipe kamar</option>
-                            <option value="superior">Superior</option>
-                            <option value="deluxe">Deluxe</option>
-                        </select>
-                    </div>
-                </div>
-                {{-- <div class="form-group row py-2">
-                    <div class="col-sm-10 offset-md-2 mt-2">
-                        <button type="submit" id="pesan" class="btn btn-lg btn btn-primary panjang mr-12">Pesan</button>
-                        <input type="button" onclick="resetForm()" class="btn btn-secondary btn-lg" value="Reset">
-                    </div>
-                </div> --}} 
-                <button class="btn btn-primary">Konfirmasi Pemesanan</button>
-            </form>
+            @endauth
+        @endif
 
-            </div>
+       
+
+            
             <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
             
             <script>

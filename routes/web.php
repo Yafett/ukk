@@ -70,4 +70,5 @@ Route::get('/admin/fasilitas/hapus/{id}', [App\Http\Controllers\FasilitasControl
 
 // resepsionis
 Route::middleware('role:resepsionis')->get('/resepsionis/dashboard', [App\Http\Controllers\ResepsionisController::class, 'index'])->name('resepsionis.dashboard');
+Route::post('/resepsionis/dashboard', [App\Http\Controllers\ResepsionisController::class, 'search'])->name('resepsionis.search');
 

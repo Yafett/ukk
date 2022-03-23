@@ -8,7 +8,16 @@
 
     <a href="{{ route('admin.dashboard') }}"> Kembali</a>
 
-
+ @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <strong>Maaf</strong> Data yang anda inputkan bermasalah.<br><br>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
 <form action="/admin/dashboard/tambah" method="post">
     {{ csrf_field() }}
 

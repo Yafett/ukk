@@ -31,8 +31,8 @@ class KamarController extends Controller
         ]);
 
         DB::table('tb_kamar')->insert([
-		'tipe_kamar' => $request->tipe_kamar,
-		'jumlah_kamar' => $request->jumlah_kamar
+	        	'tipe_kamar' => $request->tipe_kamar,
+	        	'jumlah_kamar' => $request->jumlah_kamar
 	]);
 
         return redirect('admin/dashboard');
@@ -40,6 +40,8 @@ class KamarController extends Controller
 
     public function edit($id)
     {
+       
+        
         $kamar = DB::table('tb_kamar')->where('id_kamar', $id)->get();
 
         return view('admin.kamar.edit', ['kamar' => $kamar]);
@@ -48,9 +50,14 @@ class KamarController extends Controller
     public function update(Request $request)
     {
         
+     $request->validate([
+            'tipe_kamar' => 'required|min:1',
+            'jumlah_kamar' => 'required|min:1'
+        ]);
+        
         DB::table('tb_kamar')->where('id_kamar', $request->id)->update([
         'tipe_kamar' => $request->tipe_kamar,
-		'jumlah_kamar' => $request->jumlah_kamar
+	    	'jumlah_kamar' => $request->jumlah_kamar
       ]);
 
     //   dd($request);

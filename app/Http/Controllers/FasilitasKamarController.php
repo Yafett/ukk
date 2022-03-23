@@ -33,6 +33,10 @@ class FasilitasKamarController extends Controller
 
     public function update(Request $request)
     {
+           $request->validate([
+            'tipe_kamar' => 'required|min:1',
+            'nama_fasilitas' => 'required|min:1'
+        ]);
         
         DB::table('tb_fkamar')->where('id_fkamar', $request->id)->update([
         'tipe_kamar' => $request->tipe_kamar,
@@ -46,6 +50,11 @@ class FasilitasKamarController extends Controller
     }
     public function store(Request $request)
     {
+      
+    $request->validate([
+            'tipe_kamar' => 'required|min:1',
+            'nama_fasilitas' => 'required|min:1'
+        ]);
 
         DB::table('tb_fkamar')->insert([
 		'tipe_kamar' => $request->tipe_kamar,

@@ -24,4 +24,21 @@ class ResepsionisController extends Controller
         return view('resepsionis.dashboard', ['reservasi' => $reservasi]);
 
     }
+      public function filter(Request $request){
+        
+        // dd($request->nama_tamu);
+        $reservasi = DB::table('tb_reservasi')->where('tgl_checkin',$request->tgl_checkin)->get();
+        
+        return view('resepsionis.dashboard', ['reservasi' => $reservasi]);
+
+    }
+    
+    public function reset(){
+  
+      $reservasi = DB::table('tb_reservasi')->get();
+
+        return view('resepsionis.dashboard', ['reservasi' => $reservasi]);
+      
+    }
+    
 }

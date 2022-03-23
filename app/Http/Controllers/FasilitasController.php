@@ -41,7 +41,12 @@ class FasilitasController extends Controller
 	    $thumbImage = Image::make($thumbImage)->save($thumbPath);
 
         // dd($originalPath);
-
+   $request->validate([
+            'nama_fasilitas' => 'required|min:1',
+            'keterangan' => 'required|min:1',
+            'image' => 'required'
+        ]);
+        
     	DB::table('tb_fasilitas')->insert([
 		'nama_fasilitas' => $request->nama_fasilitas,
 		'keterangan' => $request->keterangan,
@@ -69,7 +74,14 @@ class FasilitasController extends Controller
 	    $thumbImage = Image::make($image->getRealPath())->resize(100, 100);
 	    $thumbPath = public_path() . '/gambar/' . $nameImage;
 	    $thumbImage = Image::make($thumbImage)->save($thumbPath);
-
+  
+  $request->validate([
+            'nama_fasilitas' => 'required|min:1',
+            'keterangan' => 'required|min:1',
+            'image' => 'required'
+        ]);
+        
+        
         
         DB::table('tb_fasilitas')->where('id_fasilitas', $request->id)->update([
        'nama_fasilitas' => $request->nama_fasilitas,

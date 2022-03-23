@@ -6,7 +6,7 @@
 
     <h3>Tambah Fasilitas Umum</h3>
 
-<a href="admin.dashboard"> Kembali</a>
+<a href="{{ route('admin.fasilitas.dashboard') }}"> Kembali</a>
 
 <form action="/admin/fasilitas/tambah" method="post" enctype="multipart/form-data">
     {{ csrf_field() }}

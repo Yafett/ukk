@@ -5,7 +5,7 @@ use App\Http\Controllers\KamarController;
 use App\Http\Controllers\FasilitasKamarController;
 use App\Http\Controllers\FasilitasController;
 use App\Http\Controllers\HomeController;
-
+use App\Http\Controllers\ResepsionisController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -70,5 +70,5 @@ Route::get('/admin/fasilitas/hapus/{id}', [App\Http\Controllers\FasilitasControl
 
 // resepsionis
 Route::middleware('role:resepsionis')->get('/resepsionis/dashboard', [App\Http\Controllers\ResepsionisController::class, 'index'])->name('resepsionis.dashboard');
-Route::post('/resepsionis/dashboard', [App\Http\Controllers\ResepsionisController::class, 'search'])->name('resepsionis.search');
-
+Route::post('/resepsionis/dashboard/search', [App\Http\Controllers\ResepsionisController::class, 'search'])->name('resepsionis.search');
+Route::post('/resepsionis/dashboard/filter', [App\Http\Controllers\ResepsionisController::class, 'filter'])->name('resepsionis.filter');

@@ -23,9 +23,12 @@ Route::get('/', function () {
 
 
 Route::get('/tes', function () {
-    return 'welcome';
+    return view('test');
 });
 
+Route::get('/checkout', function () {
+    return view('tamu.checkout');
+});
 
 Auth::routes();
 

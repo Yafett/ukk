@@ -175,7 +175,7 @@
                 </form>
             </div>
             @else
-            <a class="btn btn-lg" href="#" role="button" style="color: #f7f7f7; background-color : #747778">Pesan Saiki</a>
+            <a class="btn btn-lg" href="/login" role="button" style="color: #f7f7f7; background-color : #747778">Pesan Saiki</a>
 
             @endauth
             @endif

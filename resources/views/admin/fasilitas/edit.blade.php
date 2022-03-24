@@ -14,14 +14,16 @@
 
 
     <br/>
-    
+
     Nama Fasilitas <input type="text" name="nama_fasilitas" required="required" value="{{ $f->nama_fasilitas }}"> <br/>
 
     Keterangan <input type="text" name="keterangan" required="required" value="{{ $f->keterangan }}"> <br/>
-   
-    
+
+
         <label for="exampleFormControlFile1">Image</label>
-    <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image" value="{{ $f->image }}">
+    <input type="file" class="form-control-file" id="exampleFormControlFile1" enctype="multipart/form-data"  name="image" value="{{ asset("gambar/$f->image") }}">
+
+    <img src= "{{ asset("gambar/$f->image") }}" style="width:100;height:100px"/>
 
     <input type="submit" value="Simpan Data">
 </form>

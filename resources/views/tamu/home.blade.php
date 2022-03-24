@@ -24,50 +24,24 @@
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
         
+        <style>
+
+            .jumbotron {
+                background-image: url('gambar/hotelc.png');
+                 background-size: cover;
+
+            }
+
+            .navbar {
+                height: 45px;
+            }
+        </style>
     </head>
     <body>
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                            @if (Route::has('login'))
-                                    @auth
-                                        {{-- <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a> --}}
-                                        <a class="button" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                                      document.getElementById('logout-form').submit();">
-                                         {{ __('Logout') }}
-                                     </a>
+            {{-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
                 
-                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                         @csrf
-                                     </form>
-                                    @else
-                                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
-                
-                                        {{-- @if (Route::has('register'))   
-                                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                                        @endif --}}
-                                    @endauth
-                                </div>
-                            @endif
-                    </ul>
-                </div>
-            </div>
-        </nav>
+            </nav> --}}
+
         
         @if (Route::has('login'))
             @auth
@@ -119,8 +93,6 @@
                         </div>
                     </div> 
                 </div>
-                
-        
     
                 <div class="collapse" id="myCollapsible">
                     <div class="form-group row py-2 tmbhdikit">'
@@ -168,15 +140,63 @@
                     </div> --}} 
                     <button class="btn btn-primary">Konfirmasi Pemesanan</button>
                 </form>
-    
                 </div>
 
             @endauth
         @endif
 
-       
+            {{-- Jumbotron --}}
+            <div class="jumbotron" style="height: 100vh; margin-bottom : 0;">
+                <h1 class="display-4 text-light">Hello, world!</h1>
+                <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+                <hr class="my-4">
+                <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+                <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+              </div>
+              
+            <nav class="navbar fixed-bottom navbar-dark bg-dark navbar-expand-md">
+                <div class="container">
+                    <a class="navbar-brand" href="{{ url('/') }}">
+                        {{ config('app.name', 'Laravel') }}
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+    
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <!-- Left Side Of Navbar -->
+                        <ul class="navbar-nav me-auto">
+    
+                        </ul>
+    
+                        <!-- Right Side Of Navbar -->
+                        <ul class="navbar-nav ms-auto">
+                                @if (Route::has('login'))
+                                        @auth
+                                            {{-- <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a> --}}
+                                            <a class="button" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                          document.getElementById('logout-form').submit();">
+                                             {{ __('Logout') }}
+                                         </a>
+                    
+                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                             @csrf
+                                         </form>
+                                        @else
+                                            <a href="{{ route('login') }}" style="color : white; text-decoration : none;"class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+                    
+                                            {{-- @if (Route::has('register'))   
+                                                <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                                            @endif --}}
+                                        @endauth
+                                    </div>
+                                @endif
+                        </ul>
+                    </div>
+                </div>
+              </nav>
 
-            
             <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
             
             <script>

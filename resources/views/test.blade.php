@@ -31,47 +31,52 @@
 </head>
 
 <body>
-
+    @foreach ($reservasi as $r)
+        
+    
     <div class="main">
         <div class="two" style="border-color: #32c671;">
             {{-- <div class="d-flex justify-content-end px-3 pt-1"><i class="mdi mdi-star-outline pr-1 star"></i><i
-                    class="mdi mdi-dots-horizontal dot"></i></div> --}}
-            <div class="px-3">
-                <img src="gambar/check.png" width="100" height="100" class="imgfix" />
-            </div>
-            <p class="text-success"
+                class="mdi mdi-dots-horizontal dot"></i></div> --}}
+                <div class="px-3">
+                    <img src="{{ asset('gambar/check.png') }}" width="100" height="100" class="imgfix mb-3" />
+                </div>
+                <p class="text-success"
                 style="font-size : 18px; text-align : center; font-family: sans-serif; color : #32c671; font-weight : 600; margin-top : -2px; margin-bottom: 20px;">
                 Pemesanan
                 Berhasil</p>
-
-
-            <div class="container p-3" style="font-family: sans-serif;">
-
-                <h2 class="name">Nama Pemesan</h2>
-                <span class="quote2 pl-2">Pak Agung</span>
-
-                <h2 class="name">No Telepon</h2>
-                <span class="quote2 pl-2">0821 1212 2134</span>
-
-                <h2 class="name">Tipe Kamar</h2>
-                <span class="quote2 pl-2">Tipe Superior</span>
-
-                <h2 class="name">Tanggal</h2>
-                <span class="quote2 pl-2">In : 12-02-2022</span><br>
-                <span class="quote2 pl-2">Out : 12-02-2022</span>
+                
+    
+                
+                <div class="container p-3" style="font-family: sans-serif;">
+                    
+                    <h2 class="name">Nama Pemesan</h2>
+                    <span class="quote2 pl-2">{{ $r->nama_pemesan }}</span>
+                    
+                    <h2 class="name">No Telepon</h2>
+                    <span class="quote2 pl-2">{{ $r->no_telp }}</span>
+                    
+                    <h2 class="name">Tipe Kamar</h2>
+                    <span class="quote2 pl-2">{{ $r->tipe_kamar }}</span>
+                    
+                    <h2 class="name">Tanggal</h2>
+                    <span class="quote2 pl-2">In : {{ $r->tgl_checkin }}</span><br>
+                    <span class="quote2 pl-2">Out : {{ $r->tgl_checkout }}</span>
+                </div>
+                
+                <div class="col">
+                    <button class="button button4" href="#" role="button" aria-pressed="true">Kembali</button>
+                    <button class="buttonk button4"role="button" aria-pressed="true">Cetak</button>
+                    
+                </div>
             </div>
-
-            <div class="col">
-                <button class="button button4" href="#" role="button" aria-pressed="true">Kembali</button>
-                <button class="buttonk button4"role="button" aria-pressed="true">Cetak</button>
-
-            </div>
+            
         </div>
-
-    </div>
-
+        
+        
     </main>
-
+    @endforeach
+    
 </body>
 
 </html>

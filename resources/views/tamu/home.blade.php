@@ -40,21 +40,21 @@
 
         ..form-control1 {
             display: block;
-    width: 100%;
-    padding: 0.375rem 0.75rem;
-    font-size: 0.9rem;
-    font-weight: 400;
-    line-height: 1.6;
-    color: #212529;
-    background-color: #f8fafc;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    border-radius: 0.25rem;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
+            width: 100%;
+            padding: 0.375rem 0.75rem;
+            font-size: 0.9rem;
+            font-weight: 400;
+            line-height: 1.6;
+            color: #212529;
+            background-color: #f8fafc;
+            background-clip: padding-box;
+            border: 1px solid #ced4da;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            border-radius: 0.25rem;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
 
 
         }
@@ -82,12 +82,20 @@
             <div class="d-flex" style="margin-left: -20px; margin-top: -20px;">
                 <form action="{{ route('reservasi.store') }}" id="myForm" method="POST" DefaultButton="pesan">
                     @csrf
-                    <div class="card-body">
-                        @if (session('success'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('success') }}
+                    @if (session('success'))
+                    <div class="row">
+                        <div class="card-body">
+                            <div class="alert alert-success" role="alert" style="margin-left: 15px;width: 690px;">
+                                Data Berhasil di Input
+                                <a class="bi bi-printer-fill bi-2x" style="color: #155724; " href="/tamu/check"></a>
+                                {{-- <a class="btn btn-lg" href="/login" role="button" style="color: #f7f7f7; background-color : #747778">cetak</a> --}}
+                            </div>
                         </div>
-                        @endif
+                        </div>
+                    </div>
+                    @endif
+
+               
                         @if ($errors->any())
                         <div class="alert alert-danger">
                             <strong>Maaf</strong> Data yang anda inputkan bermasalah.<br><br>
@@ -99,7 +107,7 @@
                         </div>
                         @endif
 
-                        <div class="row g-1">
+                        <div class="row g-1 ml-2" style="margin-top: 30px">
                             <div class="col-md">
                                 <div class="form-floating">
                                     <input required type="date" name="tgl_checkin" class="form-control" id="tgl_checkin" value="">
@@ -114,7 +122,7 @@
                             </div>
                             <div class="col-md">
                                 <div class="form-floating">
-                                    <input required type="number" name="jumlah_kamar" class="form-control" id="jumlah_kamar" value="">
+                                    <input required type="number" min="0" name="jumlah_kamar" class="form-control" id="jumlah_kamar" value="">
                                     <label for="floatingInputGrid">Jumlah Kamar</label>
                                 </div>
                             </div>

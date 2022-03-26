@@ -1,10 +1,7 @@
-@extends('layouts.app-tamu')
-
-{{-- @include('partials.navbar') --}}
 
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 
-@section('content')
     <div class="container justify-content-right">
 
         <br>
@@ -14,15 +11,15 @@
 
 
 
-            <a href="/tamu/cetak" target="_blank" class="btn btn-success btn-sm active" role="button" aria-pressed="true">Cetak</a>
 
 
-        <table class="table mt-3">
+        <table class="table mt-4">
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">Nama Tamu</th>
                     <th scope="col">Tanggal Check In</th>
                     <th scope="col">Tanggal Check Out</th>
+
                 </tr>
             </thead>
             <tbody>
@@ -32,6 +29,7 @@
                         <td>{{ $r->nama_tamu }}</td>
                         <td>{{ $r->tgl_checkin }}</td>
                         <td>{{ $r->tgl_checkin }}</td>
+
                     </tr>
                 @endforeach
             </tbody>
@@ -39,5 +37,10 @@
 
 
 
+
     </div>
-@endsection
+
+    <script type="text/javascript">
+        window.print();
+
+    </script>

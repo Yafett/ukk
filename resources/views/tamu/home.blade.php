@@ -38,7 +38,7 @@
             background-color: #f7f7f7;
         }
 
-        ..form-control1 {
+        .form-control1 {
             display: block;
             width: 100%;
             padding: 0.375rem 0.75rem;
@@ -80,7 +80,7 @@
             @if (Route::has('login'))
             @auth
             <div class="d-flex" style="margin-left: -20px; margin-top: -20px;">
-                <form action="{{ route('reservasi.store') }}" id="myForm" method="POST" DefaultButton="pesan">
+                <form style="margin-left: 20px;" action="{{ route('reservasi.store') }}" id="myForm" method="POST" DefaultButton="pesan">
                     @csrf
                     @if (session('success'))
                     <div class="row">
@@ -95,7 +95,7 @@
                     </div>
                     @endif
 
-               
+
                         @if ($errors->any())
                         <div class="alert alert-danger">
                             <strong>Maaf</strong> Data yang anda inputkan bermasalah.<br><br>
@@ -108,7 +108,7 @@
                         @endif
 
                         <div class="row g-1 ml-2" style="margin-top: 30px">
-                            <div class="col-md">
+                            <div class="col-md" style="margin-left: -20px">
                                 <div class="form-floating">
                                     <input required type="date" name="tgl_checkin" class="form-control" id="tgl_checkin" value="">
                                     <label for="floatingInputGrid">Tanggal Check In</label>
@@ -167,7 +167,7 @@
                             <label for="tipe_kamar" class="col-sm-2 col-form-label">Tipe Kamar</label>
                             <div class="col-sm-10">
                                 <select name="tipe_kamar" id="tipe_kamar" class="form-control">
-                                    <option selected class="form-select form-check disabled text-muted  " aria-label="disabled select example" disabled>Pilih salah satu tipe kamar</option>
+                                    <option selected class="form-select form-check disabled text-muted" aria-label="disabled select example" disabled>Pilih salah satu tipe kamar</option>
                                     <option value="superior">Superior</option>
                                     <option value="deluxe">Deluxe</option>
                                 </select>
@@ -210,11 +210,11 @@
                         @if (Route::has('login'))
                         @auth
                         {{-- <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a> --}}
-                        <a href="#" style="color : white; text-decoration : none;" class="text-sm text-gray-700 dark:text-gray-500 underline p-1">Home</a>
-                        <a href="#" style="color : white; text-decoration : none;" class="text-sm text-gray-700 dark:text-gray-500 underline p-1">Kamar</a>
-                        <a href="#" style="color : white; text-decoration : none;" class="text-sm text-gray-700 dark:text-gray-500 underline p-1">Fasilitas</a>
+                        <a href="/home" style="color : white; text-decoration : none;" class="ml-3 text-sm text-gray-700 dark:text-gray-500 underline p-1">Home</a>
+                        <a href="/home/kamar" style="color : white; text-decoration : none;" class="ml-3 text-sm text-gray-700 dark:text-gray-500 underline p-1">Kamar</a>
+                        <a href="/home/fasilitas" style="color : white; text-decoration : none;" class="ml-3 text-sm text-gray-700 dark:text-gray-500 underline p-1">Fasilitas</a>
 
-                        <a style="color : white; text-decoration : none;" class="text-sm text-gray-700 dark:text-gray-500 underline p-1" href="{{ route('logout') }}" onclick="event.preventDefault();
+                        <a style="color : white; text-decoration : none;" class="ml-3 text-sm text-gray-700 dark:text-gray-500 underline p-1" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                           document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
                         </a>
@@ -223,13 +223,13 @@
                             @csrf
                         </form>
                         @else
-                        <a href="#" style="color : white; text-decoration : none;" class="text-sm text-gray-700 dark:text-gray-500 underline p-1">Home</a>
-                        <a href="#" style="color : white; text-decoration : none;" class="text-sm text-gray-700 dark:text-gray-500 underline p-1">Kamar</a>
-                        <a href="#" style="color : white; text-decoration : none;" class="text-sm text-gray-700 dark:text-gray-500 underline p-1">Fasilitas</a>
+                        <a href="/home" style="color : white; text-decoration : none;" class="ml-3 text-sm text-gray-700 dark:text-gray-500 underline p-1">Home</a>
+                        <a href="/home/kamar" style="color : white; text-decoration : none;" class="ml-3 text-sm text-gray-700 dark:text-gray-500 underline p-1">Kamar</a>
+                        <a href="/home/fasilitas" style="color : white; text-decoration : none;" class="ml-3 text-sm text-gray-700 dark:text-gray-500 underline p-1">Fasilitas</a>
 
-                        <a href="{{ route('login') }}" style="color : white; text-decoration : none;" class="text-sm text-gray-700 dark:text-gray-500 underline p-1">Log in</a>
+                        <a href="{{ route('login') }}" style="color : white; text-decoration : none;" class="ml-3 text-sm text-gray-700 dark:text-gray-500 underline p-1">Log in</a>
 
-                        {{-- @if (Route::has('register'))   
+                        {{-- @if (Route::has('register'))
                                                 <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
                         @endif --}}
                         @endauth
@@ -240,12 +240,8 @@
             </div>
         </nav>
 
-        <div class="d-flex justify-content-center">
 
 
-        </div>
-
-        </div>
         <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 
         <script>

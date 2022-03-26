@@ -23,7 +23,7 @@
 
 
 <style>
-    
+
 .btn-circle.btn-sm {
     margin-top: 50px;
             width: 45px;
@@ -33,11 +33,16 @@
             font-size: 20px;
             text-align: center;
         }
+
+
+body {
+    background-color : f7f7f7;
+}
 </style>
   </head>
   <body>
-    
-    
+
+
 
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
@@ -62,7 +67,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/admin/fkamar/dashboard" >Fasilitas Kamar</a>
-                        </li> 
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/admin/fasilitas/dashboard">Fasilitas Umum</a>
                         </li>
@@ -103,7 +108,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-4" style="align-items: center;">
             @yield('content')
         </main>
     </div>

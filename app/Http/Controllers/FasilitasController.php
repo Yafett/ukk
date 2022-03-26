@@ -22,42 +22,41 @@ class FasilitasController extends Controller
     public function tambah()
     {
 
-    	return view('admin/fasilitas/tambah');
+        return view('admin/fasilitas/tambah');
     }
 
     public function store(Request $request)
     {
-    	// dd($request);
+        // dd($request);
 
-    	// return $request->file('image')->store('images');
+        // return $request->file('image')->store('images');
 
 
 
-		$image = $request->file('image');
-    	$nameImage = $request->file('image')->getClientOriginalName();
+        $image = $request->file('image');
+        $nameImage = $request->file('image')->getClientOriginalName();
 
-	    $thumbImage = Image::make($image->getRealPath())->resize(100, 100);
-	    $thumbPath = public_path() . '/gambar/' . $nameImage;
-	    $thumbImage = Image::make($thumbImage)->save($thumbPath);
+        $thumbImage = Image::make($image->getRealPath())->resize(100, 100);
+        $thumbPath = public_path() . '/gambar/' . $nameImage;
+        $thumbImage = Image::make($thumbImage)->save($thumbPath);
 
         // dd($originalPath);
-   $request->validate([
+        $request->validate([
             'nama_fasilitas' => 'required|min:1',
             'keterangan' => 'required|min:1',
             'image' => 'required'
         ]);
 
-    	DB::table('tb_fasilitas')->insert([
-		'nama_fasilitas' => $request->nama_fasilitas,
-		'keterangan' => $request->keterangan,
-		'image' => $nameImage,
-	]);
+        DB::table('tb_fasilitas')->insert([
+            'nama_fasilitas' => $request->nama_fasilitas,
+            'keterangan' => $request->keterangan,
+            'image' => $nameImage,
+        ]);
 
         return redirect('admin/fasilitas/dashboard');
-
     }
 
-        public function edit($id)
+    public function edit($id)
     {
         $fasilitas = DB::table('tb_fasilitas')->where('id_fasilitas', $id)->get();
 
@@ -71,14 +70,14 @@ class FasilitasController extends Controller
 
 
 
-		$image = $request->file('image');
-    	$nameImage = $request->file('image')->getClientOriginalName();
+        $image = $request->file('image');
+        $nameImage = $request->file('image')->getClientOriginalName();
 
-	    $thumbImage = Image::make($image->getRealPath())->resize(100, 100);
-	    $thumbPath = public_path() . '/gambar/' . $nameImage;
-	    $thumbImage = Image::make($thumbImage)->save($thumbPath);
+        $thumbImage = Image::make($image->getRealPath())->resize(100, 100);
+        $thumbPath = public_path() . '/gambar/' . $nameImage;
+        $thumbImage = Image::make($thumbImage)->save($thumbPath);
 
-  $request->validate([
+        $request->validate([
             'nama_fasilitas' => 'required|min:1',
             'keterangan' => 'required|min:1',
             'image' => 'required'
@@ -87,22 +86,19 @@ class FasilitasController extends Controller
 
 
         DB::table('tb_fasilitas')->where('id_fasilitas', $request->id)->update([
-       'nama_fasilitas' => $request->nama_fasilitas,
-		'keterangan' => $request->keterangan,
-		'image' => $nameImage,
-      ]);
+            'nama_fasilitas' => $request->nama_fasilitas,
+            'keterangan' => $request->keterangan,
+            'image' => $nameImage,
+        ]);
 
         return redirect('admin/fasilitas/dashboard');
-
     }
 
-       public function hapus($id)
+    public function hapus($id)
     {
 
         DB::table('tb_fasilitas')->where('id_fasilitas', $id)->delete();
 
         return redirect('admin/fasilitas/dashboard');
     }
-
-
 }

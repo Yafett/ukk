@@ -34,16 +34,16 @@ class ReservasiController extends Controller
             'updated_at' => date("Y-m-d H:i:s")
         ];
 
+        DB::table('tb_reservasi')->insert($data);
         return back()->with('success','Data Berhasil di Input');
-        
+
         // if($request->filled('tgl_checkin')) {
         //     dd('user_id is not empty.');
-        //     DB::table('tb_reservasi')->insert($data);
         //     return redirect()->route('tamu.home')->with('success','Data Berhasil di Input');
         // } else {
         //     dd('user_id is empty.');
         //     return redirect()->route('tamu.home', ['data' => $request])->with('success','Data Berhasil di Input');
-        // }        
-        
+        // }
+
     }
 }

@@ -77,5 +77,10 @@ Route::middleware('role:resepsionis')->get('/resepsionis/dashboard', [App\Http\C
 Route::post('/resepsionis/dashboard/search', [App\Http\Controllers\ResepsionisController::class, 'search'])->name('resepsionis.search');
 Route::post('/resepsionis/dashboard/filter', [App\Http\Controllers\ResepsionisController::class, 'filter'])->name('resepsionis.filter');
 
+Route::get('/resepsionis/dashboard/hapus/{id}', [App\Http\Controllers\ResepsionisController::class, 'hapus'])->name('resepsionis.hapus');
+
 // tamu
 Route::get('/tamu/check', [App\Http\Controllers\TamuController::class, 'index'])->name('tamu.check');
+Route::get('/tamu/cetak', [App\Http\Controllers\TamuController::class, 'cetak'])->name('tamu.cetak');
+Route::get('/home/fasilitas', [App\Http\Controllers\TamuController::class, 'fasilitas'])->name('tamu.fasilitas');
+Route::get('/home/kamar', [App\Http\Controllers\TamuController::class, 'kamar'])->name('tamu.kamar');

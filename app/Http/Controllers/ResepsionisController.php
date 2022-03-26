@@ -7,37 +7,45 @@ use Illuminate\Support\Facades\DB;
 
 class ResepsionisController extends Controller
 {
-  public function index()
-  {
+    public function index()
+    {
 
-    $reservasi = DB::table('tb_reservasi')->get();
+        $reservasi = DB::table('tb_reservasi')->get();
 
-    return view('resepsionis.dashboard', ['reservasi' => $reservasi]);
-  }
+        return view('resepsionis.dashboard', ['reservasi' => $reservasi]);
+    }
 
-  public function search(Request $request)
-  {
+    public function search(Request $request)
+    {
 
 
-    // dd($request->nama_tamu);
-    $reservasi = DB::table('tb_reservasi')->where('nama_tamu', $request->nama_tamu)->get();
+        // dd($request->nama_tamu);
+        $reservasi = DB::table('tb_reservasi')->where('nama_tamu', $request->nama_tamu)->get();
 
-    return view('resepsionis.dashboard', ['reservasi' => $reservasi]);
-  }
-  public function filter(Request $request)
-  {
+        return view('resepsionis.dashboard', ['reservasi' => $reservasi]);
+    }
+    public function filter(Request $request)
+    {
 
-    // dd($request->nama_tamu);
-    $reservasi = DB::table('tb_reservasi')->where('tgl_checkin', $request->tgl_checkin)->get();
+        // dd($request->nama_tamu);
+        $reservasi = DB::table('tb_reservasi')->where('tgl_checkin', $request->tgl_checkin)->get();
 
-    return view('resepsionis.dashboard', ['reservasi' => $reservasi]);
-  }
+        return view('resepsionis.dashboard', ['reservasi' => $reservasi]);
+    }
 
-  public function reset()
-  {
+    public function reset()
+    {
 
-    $reservasi = DB::table('tb_reservasi')->get();
+        $reservasi = DB::table('tb_reservasi')->get();
 
-    return view('resepsionis.dashboard', ['reservasi' => $reservasi]);
-  }
+        return view('resepsionis.dashboard', ['reservasi' => $reservasi]);
+    }
+
+    public function hapus($id)
+    {
+
+        DB::table('tb_reservasi')->where('id_reservasi', $id)->delete();
+
+        return redirect('resepsionis/dashboard');
+    }
 }

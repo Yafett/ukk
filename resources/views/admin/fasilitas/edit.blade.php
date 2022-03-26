@@ -2,34 +2,48 @@
 
 @section('content')
 
-<div class="container">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+            </div>
+            <div class="col-sm">
+                <h3>Edit Fasilitas Umum</h3>
+                @foreach ($fasilitas as $f)
+                    <div class="card p-3" style="background-color: white; width : 380px;">
+                        <form action="/admin/fasilitas/edit/{{ $f->id_fasilitas }}" method="post" enctype="multipart/form-data">
+                            {{ csrf_field() }}
 
-    <h3>Edit Fasilitas Umum</h3>
+                            Nama Fasilitas <input class="form-control" type="text" name="nama_fasilitas"
+                                required="required" value="{{ $f->nama_fasilitas }}"> <br />
 
-<a href="admin.dashboard"> Kembali</a>
+                            Keterangan <input class="form-control" type="text" name="keterangan" required="required"
+                                value="{{ $f->keterangan }}"> <br />
+                            <label for="exampleFormControlFile1">Image</label>
+                            <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image">
 
-@foreach($fasilitas as $f)
-<form action="/admin/fasilitas/edit/{{ $f->id_fasilitas }}" method="post" enctype="multipart/form-data">
-    {{ csrf_field() }}
-
-
-    <br/>
-
-    Nama Fasilitas <input type="text" name="nama_fasilitas" required="required" value="{{ $f->nama_fasilitas }}"> <br/>
-
-    Keterangan <input type="text" name="keterangan" required="required" value="{{ $f->keterangan }}"> <br/>
-
-
-        <label for="exampleFormControlFile1">Image</label>
-    <input type="file" class="form-control-file" id="exampleFormControlFile1" enctype="multipart/form-data"  name="image" value="{{ asset("gambar/$f->image") }}">
-
-    <img src= "{{ asset("gambar/$f->image") }}" style="width:100;height:100px"/>
-
-    <input type="submit" value="Simpan Data">
-</form>
-@endforeach
-
-</div>
+                            <br>
 
 
+                            <div class="row">
+                                current image : <br>
+                                <img src="{{ asset("gambar/$f->image") }}" class="img-thumbnail" />
+
+                                <small>{{ $f->image }}</small>
+
+                            </div>
+
+                            <div class="col mt-3">
+                                <a href="{{ route('admin.fasilitas.dashboard') }}"> Kembali</a>
+                                <input class="btn btn-success ml-3" type="submit" value="Simpan Data">
+                            </div>
+
+                        </form>
+                    </div>
+
+            </div>
+            <div class="col-sm">
+            </div>
+        </div>
+    </div>
+    @endforeach
 @endsection

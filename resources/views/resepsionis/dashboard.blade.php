@@ -5,47 +5,43 @@
 
 
 @section('content')
-    <div class="container justify-content-right">
+    <div class="container">
 
-        <br>
 
         <div class="container">
             <div class="row">
-                <div class="col-6">
+                <div class="col-sm">
+                    <form class="d-flex" action="{{ route('resepsionis.search') }}" method="POST">
+                        @csrf
 
+                        <div class="form-floating">
+                            <input required type="text" name="nama_tamu" class="form-control" id="nama_tamu" value=""
+                                style="width : 250px">
+                            <label for="floatingInputGrid">Search ( nama tamu)</label>
+                        </div>
+                        <button class="btn btn-outline-success ml-3" type="submit">Search</button>
+                    </form>
+
+                </div>
+                <div class="col-sm">
+                </div>
+                <div class="col-sm">
                     <form action="{{ route('resepsionis.filter') }}" class="d-flex" method="POST">
                         @csrf
 
                         <div class="form-floating">
                             <input required type="date" name="tgl_checkin" class="form-control" id="tgl_checkin" value=""
                                 style="width : 250px">
-                            <label for="floatingInputGrid">Tanggal Check In</label>
+                            <label for="floatingInputGrid">filter ( tanggal check-in)</label>
                         </div>
-                        <button class="btn btn-outline-success" type="submit">Filter</button>
-                </div>
-                </form>
-
-
-                <div class="col-6">
-                    <form class="d-flex" action="{{ route('resepsionis.search') }}" method="POST">
-                        @csrf
-                        <!--   <input name="nama_tamu" class="form-control-sm mr-2 " type="search" placeholder="Search" aria-label="Search">-->
-
-                        <div class="form-floating">
-                            <input required type="text" name="nama_tamu" class="form-control" id="nama_tamu" value=""
-                                style="width : 250px">
-                            <label for="floatingInputGrid">Search</label>
-                        </div>
-                        <button class="btn btn-outline-success" type="submit">Search</button>
+                        <button class="btn btn-outline-success ml-3" type="submit">Filter</button>
                     </form>
                 </div>
-
-            </div>
-            <div class="row">
-                <div class="col-8"></div>
-                <div class="col-4"></div>
             </div>
         </div>
+
+
+
 
 
 
@@ -67,11 +63,8 @@
                         <td>{{ $r->tgl_checkin }}</td>
                         <td>
 
-                            <a href="" class="btn btn-success btn-sm active" role="button" aria-pressed="true">Check In</a>
-
-
-                            {{-- <a href="/admin/reservasi/hapus/{{ $r->id_reservasi }}" class="btn btn-danger btn-sm active" role="button" aria-pressed="true">Hapus</a> --}}
-
+                            <a href="/resepsionis/dashboard/hapus/{{ $r->id_reservasi }}" class="btn btn-success btn-sm active" role="button" aria-pressed="true">Check
+                                In</a>
 
                         </td>
                     </tr>
@@ -82,12 +75,14 @@
         <form method="post" action="{{ route('resepsionis.dashboard') }}">
             <div class="d-flex flex-column align-items-end">
 
-                <a href="/resepsionis/dashboard" type="button" class="btn btn-success btn-circle btn-sm">reset</a>
+                <a href="/resepsionis/dashboard" type="button" class="btn btn-success btn-circle btn-sm"  style="font-size: 14px">reset</a>
 
             </div>
 
         </form>
 
+    </div>
+    </div>
 
 
     </div>

@@ -2,6 +2,18 @@
 
     @section('content')
         <div class="container">
+
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <strong>Maaf</strong> Data yang anda inputkan bermasalah.<br><br>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
+
             <div class="row">
                 <div class="col-sm">
                 </div>
@@ -13,15 +25,15 @@
                             {{ csrf_field() }}
 
 
+                            Tipe Kamar
                             <select name="tipe_kamar" id="tipe_kamar" class="form-control">
                                 <option selected class="form-select form-check disabled text-muted" aria-label="disabled select example" disabled>Pilih salah satu tipe kamar</option>
-                                <option value="superior">Superior</option>
-                                <option value="deluxe">Deluxe</option>
+                                <option value="Superior">Superior</option>
+                                <option value="Deluxe">Deluxe</option>
                             </select>
 
-                            Tipe Kamar
 
-                        
+
                             <br />
 
                             Nama Fasilitas <input class="form-control" type="text" name="nama_fasilitas" required="required">

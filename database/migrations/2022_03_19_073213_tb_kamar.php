@@ -17,6 +17,8 @@ Schema::create('tb_kamar', function (Blueprint $table) {
             $table->id('id_kamar');
             $table->string('tipe_kamar');
             $table->string('jumlah_kamar');
+            $table->timestamps();
+
         });
     }
 

@@ -68,6 +68,11 @@ class FasilitasController extends Controller
     public function update(Request $request)
     {
 
+        $request->validate([
+            'nama_fasilitas' => 'required|min:1',
+            'keterangan' => 'required|min:1',
+            'image' => 'required'
+        ]);
 
 
         $image = $request->file('image');
@@ -77,11 +82,6 @@ class FasilitasController extends Controller
         $thumbPath = public_path() . '/gambar/' . $nameImage;
         $thumbImage = Image::make($thumbImage)->save($thumbPath);
 
-        $request->validate([
-            'nama_fasilitas' => 'required|min:1',
-            'keterangan' => 'required|min:1',
-            'image' => 'required'
-        ]);
 
 
 

@@ -44,12 +44,15 @@
             }
         }
 
-        body {
-            background-image: url("../gambar/background_repeat.jpg");
+        main {
+            background-image: url("../gambar/hotelb.png");
             /* background-color: #f7f7f7; */
+            /* background-size: 10px 10px; */
         }
 
-        .jumbotron {}
+        .bg-dark {
+            background-color: #ef95b1;
+        }
 
     </style>
 
@@ -57,17 +60,17 @@
 </head>
 
 <body>
-    <main role="main">
-        <section class="jumbotron text-center">
+    <main role="main" style="background-image: url('../gambar/hotelb.png');">
+        <section class="jumbotron text-center" style="background-image: url('../gambar/hotelb.png'); height : 300px;">
             <div class="container">
                 {{-- <h1>Fasilitas Umum</h1> --}}
             </div>
         </section>
 
-        <div class="p-5 bg-dark text-white h-50  text-center" style="border-radius: 10px 20px; background-image: url('../gambar/background.jpg'); background-size: cover; width : 1100px; margin-left : 82px; margin-top : -70px ">
+        <div  class="p-5 bg-dark text-white h-50  text-center" style="border-radius: 10px 20px; background-image: url('../gambar/background.jpg'); background-size: cover; width : 1100px; margin-left : 82px; margin-top : -240px ">
             {{-- <img src="{{ asset('gambar/background.jpg') }}" class=" text-white h-50 imgfix mb-3" /> --}}
 
-            <div class="display-4 text-dark" style="font-weight: 400">
+            <div class="display-4 text-dark" style="font-weight: 600">
                 Fasilitas Umum
             </div>
 
@@ -93,14 +96,14 @@
         </div>
 
 
-            <div class="album py-5 bg-light" style=" background-image: url('../gambar/background_repeat.jpg');">
+            <div class="album py-5 bg-light" style=" background-color : #f7f7f7">
             <div class="container">
 
                 <div class="row">
 
                     @foreach ($fasilitas as $f)
                     <div class="col-md-3">
-                        <div class="card mb-4 shadow-sm" style="border: 1px solid; border-color : #ef95b1">
+                        <div class="card mb-4 shadow-sm" style="\*border: 1px solid; border-color : #ef95b1*\">
                             <img width="100%" height="225" src="{{ asset("gambar/$f->image") }}" class="img-thumbnail" style="padding : 0px" />
                             <div class="card-body">
                                 <h4 class="display-6">{{ $f->nama_fasilitas }}</h4>
@@ -121,7 +124,7 @@
             </div>
         </div>
 
-        <nav class="navbar fixed-top navbar-dark bg-dark navbar-expand-md me-auto">
+        <nav class="navbar fixed-top navbar-dark  navbar-expand-md me-auto" style="background-color: #ef95b1;">
             <div class="container">
                 {{-- <a class="navbar-brand" href="{{ url('/') }}">
                 Tadika Mesra

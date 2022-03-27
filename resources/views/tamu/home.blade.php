@@ -190,7 +190,7 @@
 
         </div>
 
-        <nav class="navbar fixed-top navbar-dark bg-dark navbar-expand-md">
+        <nav class="navbar fixed-top navbar-dark navbar-expand-md" style="background-color: #7b7b76">
             <div class="container">
                 {{-- <a class="navbar-brand" href="{{ url('/') }}">
                 Tadika Mesra
@@ -215,7 +215,7 @@
                         <a href="/home/fasilitas" style="color : white; text-decoration : none;" class="ml-3 text-sm text-gray-700 dark:text-gray-500 underline p-1">Fasilitas</a>
 
                         <a style="color : white; text-decoration : none;" class="ml-3 text-sm text-gray-700 dark:text-gray-500 underline p-1" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                          document.getElementById('logout-form').submit();">
+                            document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
                         </a>
 

@@ -33,6 +33,7 @@ class KamarController extends Controller
         DB::table('tb_kamar')->where('tipe_kamar', $request->tipe_kamar)->update([
             'jumlah_kamar' => DB::table('tb_kamar')->where('tipe_kamar', $request->tipe_kamar)->value('jumlah_kamar') + $request->jumlah_kamar,
         ]);
+        
 
         return redirect('admin/dashboard');
     }

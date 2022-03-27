@@ -44,9 +44,12 @@
             }
         }
 
-        body {
-            background-image: url('../gambar/background_repeat.jpg');
+        .jumbotron {
+            background-image: url('../gambar/hotela.png');
             /* background-color: #f7f7f7; */
+            height: 610px;
+            text-align: center;
+
         }
 
         .list-group-item.active {
@@ -62,20 +65,101 @@
             border-top-right-radius: unset;
         }
 
+        section {
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #sec-1 {
+            background-color: rgb(214, 228, 92);
+        }
+
+        #sec-2 {
+            background-color: aliceblue;
+        }
+
+        .scroll-down {
+            height: 50px;
+            width: 30px;
+            border: 2px solid #f7f7f7;
+            position: absolute;
+            left: 50%;
+            bottom: 20px;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+
+        .scroll-down::before,
+        .scroll-down::after {
+            content: "";
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            height: 10px;
+            width: 10px;
+            transform: translate(-50%, -100%) rotate(45deg);
+            border: 2px solid #f7f7f7;
+            border-top: transparent;
+            border-left: transparent;
+            animation: scroll-down 1s ease-in-out infinite;
+        }
+
+        .scroll-down::before {
+            top: 30%;
+            animation-delay: 0.3s;
+            /* animation: scroll-down 1s ease-in-out infinite; */
+        }
+
+        @keyframes scroll-down {
+            0% {
+                /* top:20%; */
+                opacity: 0;
+            }
+
+            30% {
+                opacity: 1;
+            }
+
+            60% {
+                opacity: 1;
+            }
+
+            100% {
+                top: 90%;
+                opacity: 0;
+            }
+        }
+
     </style>
 
     <link href="album.css" rel="stylesheet">
 </head>
 
 <body>
+
+
     <main role="main">
 
-        <section class="jumbotron text-center">
+        <div class="jumbotron">
             <div class="container">
-                {{-- <h1>Fasilitas Umum</h1> --}}
-            </div>
-        </section>
+                <h1 class="text-white display-3" style="margin-top: 130px; font-weight : 500">Informasi Kamar</h1>
+                <p class="text-white" style="margin-left: 290; width: 530; text-align: justify;">Hotel Tadika Mesra memilik 2 Tipe Kamar, Tipe Superior dan Tipe Deluxe, dimana masing masing tipe kamar memiliki Fasilitas dan Keunggulannnya masing masing.</p>
+                {{-- <p><a class="btn btn-lg text-white" style="background-color: #ff6907c7; border-color : none" href="#" role="button">↓</a></p> --}}
 
+            </div>
+            <div class="container">
+                <a href="#sec-2">
+                <div class="scroll-down"></div>
+            </a>
+            </div>
+        </div>
+
+        <div class="container" id="sec-2"></div>
+
+        <div class="container" style="margin-bottom: 100px; margin-top: 200px;" ></div>
         <div class="p-5 bg-dark text-white h-50  text-center" style="border:1px solid; border-color: grey; border-radius: 10px 20px 0 0; background-image: url('../gambar/kamar.png'); background-size: cover; width : 1100px; margin-left : 82px; margin-top : -70px ">
             {{-- <img src="{{ asset('gambar/background.jpg') }}" class=" text-white h-50 imgfix mb-3" /> --}}
 
@@ -124,7 +208,7 @@
         <br>
 
 
-        <nav class="navbar fixed-top navbar-dark bg-dark navbar-expand-md me-auto">
+        <nav class="navbar fixed-top navbar-dark navbar-expand-md me-auto" style="background-color: #3bbcdb">
             <div class="container">
                 {{-- <a class="navbar-brand" href="{{ url('/') }}">
                 Tadika Mesra

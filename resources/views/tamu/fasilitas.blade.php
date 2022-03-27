@@ -96,7 +96,7 @@
         </div>
 
 
-            <div class="album py-5 bg-light" style=" background-color : #f7f7f7">
+            <div class="album py-5 " style="background-image: url('../gambar/hotelb.png');">
             <div class="container">
 
                 <div class="row">

@@ -103,14 +103,21 @@
 
                     @foreach ($fasilitas as $f)
                     <div class="col-md-3">
-                        <div class="card mb-4 shadow-sm" style="\*border: 1px solid; border-color : #ef95b1*\">
-                            <img width="100%" height="225" src="{{ asset("gambar/$f->image") }}" class="img-thumbnail" style="padding : 0px" />
+                        <div class="card mb-4 shadow-sm" style="border: 2px solid; border-color : #ef95b1; border-radius : 20px">
+                            <img width="100%" height="225" src="{{ asset("gambar/$f->image") }}" class="img-thumbnail" style="    border-radius: 20px;
+                            border-bottom-right-radius: unset;
+                            border-bottom-left-radius: unset; padding : 0px" />
                             <div class="card-body">
                                 <h4 class="display-6">{{ $f->nama_fasilitas }}</h4>
                                 <p class="card-text">{{ $f->keterangan }}</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary" style="
+                                        color: #ef95b1;
+                                        background-color: #ffffff;
+                                        border-color: #ef95b1;
+                                        margin-left: 160;
+                                    ">View</button>
                                     </div>
 
                                 </div>
@@ -140,13 +147,14 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto" style="margin-left: 820px">
+                    <ul class="navbar-nav ms-auto" style="margin-left: 780px">
                         @if (Route::has('login'))
                         @auth
                         {{-- <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a> --}}
                         <a href="/home" style="color : white; text-decoration : none;" class="ml-3 text-sm text-gray-700 dark:text-gray-500 underline p-1">Home</a>
                         <a href="/home/kamar" style="color : white; text-decoration : none;" class="ml-3 text-sm text-gray-700 dark:text-gray-500 underline p-1">Kamar</a>
                         <a href="/home/fasilitas" style="color : white; text-decoration : none;" class="ml-3 text-sm text-gray-700 dark:text-gray-500 underline p-1">Fasilitas</a>
+                        <a href="/home/check" style="color : white; text-decoration : none;" class="ml-3 text-sm text-gray-700 dark:text-gray-500 underline p-1">Cetak</a>
 
                         <a style="color : white; text-decoration : none;" class="ml-3 text-sm text-gray-700 dark:text-gray-500 underline p-1" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}

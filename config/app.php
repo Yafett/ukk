@@ -7,14 +7,12 @@ return [
     'providers' => [
         // ...
         Spatie\Permission\PermissionServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
     ],
-    'providers' => [
-        // ...
-        'Intervention\Image\ImageServiceProvider',
-    ],
+    
     'aliases' => [
         // ...
-        'Image' => 'Intervention\Image\Facades\Image',
+        'Image' => Intervention\Image\Facades\Image::class, 
     ],
     /*
     |--------------------------------------------------------------------------
@@ -175,6 +173,8 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        
+
 
         /*
          * Package Service Providers...
@@ -205,5 +205,7 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // ...
     ])->toArray(),
+
+ 
 
 ];

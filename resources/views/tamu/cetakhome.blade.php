@@ -70,10 +70,7 @@
         <div class="container" style="margin-top: 5%">
             <a href="/tamu/cetak" target="_blank" class="btn btn-success btn-sm active" role="button" aria-pressed="true">cetak semua</a>
             
-            
-            
-            <a href="/home" target="_blank" class="btn btn-success btn-sm active" role="button" aria-pressed="true">Kembali</a>
-
+        
 
             <table class="table mt-3">
                 <thead class="thead-dark">
@@ -126,7 +123,7 @@
                         <a href="/home" style="color : white; text-decoration : none;" class="ml-3 text-sm text-gray-700 dark:text-gray-500 underline p-1">Home</a>
                         <a href="/home/kamar" style="color : white; text-decoration : none;" class="ml-3 text-sm text-gray-700 dark:text-gray-500 underline p-1">Kamar</a>
                         <a href="/home/fasilitas" style="color : white; text-decoration : none;" class="ml-3 text-sm text-gray-700 dark:text-gray-500 underline p-1">Fasilitas</a>
-                        <a href="/tamu/check" style="color : white; text-decoration : none;" class="ml-3 text-sm text-gray-700 dark:text-gray-500 underline p-1">Cetak</a>
+                        <a href="/home/check" style="color : white; text-decoration : none;" class="ml-3 text-sm text-gray-700 dark:text-gray-500 underline p-1">Cetak</a>
 
                         <a style="color : white; text-decoration : none;" class="ml-3 text-sm text-gray-700 dark:text-gray-500 underline p-1" href="{{ route('logout') }}" onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">

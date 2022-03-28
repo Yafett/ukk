@@ -84,3 +84,7 @@ Route::get('/tamu/check', [App\Http\Controllers\TamuController::class, 'index'])
 Route::get('/tamu/cetak', [App\Http\Controllers\TamuController::class, 'cetak'])->name('tamu.cetak');
 Route::get('/home/fasilitas', [App\Http\Controllers\TamuController::class, 'fasilitas'])->name('tamu.fasilitas');
 Route::get('/home/kamar', [App\Http\Controllers\TamuController::class, 'kamar'])->name('tamu.kamar');
+Route::get('/home/success', [App\Http\Controllers\TamuController::class, 'success'])->name('tamu.succ');
+Route::get('/home/check', [App\Http\Controllers\TamuController::class, 'cetakhome'])->name('home.check');
+
+Route::get('/home/check/{id}', [App\Http\Controllers\TamuController::class, 'cetaksatu'])->name('home.check.satu');

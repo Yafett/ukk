@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('email');
             $table->integer('no_telp');
             $table->integer('jumlah_kamar');
+            $table->integer('id_user');
             $table->timestamps();
         });
     }

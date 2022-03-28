@@ -23,7 +23,8 @@ class KamarController extends Controller
     }
 
     public function store(Request $request)
-    {
+    {   
+
 
         $request->validate([
             'tipe_kamar' => 'required|min:1',

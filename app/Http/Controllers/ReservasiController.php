@@ -12,6 +12,7 @@ class ReservasiController extends Controller
         $awal = DB::table('tb_kamar')->where('tipe_kamar', $request->tipe_kamar)->value('jumlah_kamar');
 
         // dd($awal);
+        
 
         DB::table('tb_kamar')->where('tipe_kamar', $request->tipe_kamar)->update([
             'jumlah_kamar' => $awal - $request->jumlah_kamar

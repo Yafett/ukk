@@ -8,6 +8,17 @@ use Illuminate\Support\Facades\DB;
 class ReservasiController extends Controller
 {
     public function store(Request $request){
+
+        $awal = DB::table('tb_kamar')->where('tipe_kamar', $request->tipe_kamar)->value('jumlah_kamar');
+
+        // dd($awal);
+
+        DB::table('tb_kamar')->where('tipe_kamar', $request->tipe_kamar)->update([
+            'jumlah_kamar' => $awal - $request->jumlah_kamar
+        ]);
+
+        // dd($request->jumlah_kamar);
+
         $test = auth()->user()->id;
 
         // dd($test);

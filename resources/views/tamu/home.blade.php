@@ -73,7 +73,7 @@
         {{-- Jumbotron --}}
         <div class="jumbotron" style="height: 92.5vh; margin-bottom : 0;">
             <h1 class="display-4 text-dark" style="margin-top : 100px;">Tadika Mesra</h1>
-            <p class="lead">Hotel sing nggawa rasa seneng kanggo sampeyan, sing pengin nginep ing kene.</p>
+            <p class="lead">Hotel anak, membawa anak dalam kebahagiaan dan keceriaan.   </p>
             {{-- <hr class="my-4"> --}}
             {{-- <p>It uses utility classes for typography and spacing to space content out within the larger container.</p> --}}
 
@@ -135,9 +135,9 @@
                         </div>
                     </div>
 
-                    <div class="collapse ml-4" id="myCollapsible">
-                        <div class="form-group row tmbhdikit">'
-                            <div class="display-6 mt-3 mb-4">
+                    <div style="argin-left: 10px;" class="collapse" id="myCollapsible">
+                        <div class="form-group row tmbhdikit">
+                            <div class="display-6 mt-5 mb-5">
                                 Form Pemesan
                             </div>
                             <label for="pemesan" class="col-sm-2 col-form-label">Nama Pemesan</label>

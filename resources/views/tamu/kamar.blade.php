@@ -133,6 +133,45 @@
             }
         }
 
+        .card {
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .card-title {
+            font-weight: bold;
+        }
+
+        .card img {
+            width: 30%;
+            border-top-right-radius: 0;
+            border-bottom-left-radius: calc(0.25rem - 1px);
+        }
+
+        @media only screen and (max-width: 768px) {
+            a {
+                display: none;
+            }
+
+            .card-body {
+                padding: 0.5em 1.2em;
+            }
+
+            .card-body .card-text {
+                margin: 0;
+            }
+
+            .card img {
+                width: 50%;
+            }
+        }
+
+        @media only screen and (max-width: 1200px) {
+            .card img {
+                width: 40%;
+            }
+        }
+
     </style>
 
     <link href="album.css" rel="stylesheet">
@@ -152,18 +191,51 @@
             </div>
             <div class="container">
                 <a href="#sec-2">
-                <div class="scroll-down"></div>
-            </a>
+                    <div class="scroll-down"></div>
+                </a>
             </div>
         </div>
 
+
         <div class="container" id="sec-2"></div>
 
-        <div class="container" style="margin-bottom: 100px; margin-top: 200px;" ></div>
-        <div class="p-5 bg-dark text-white h-50  text-center" style="border:1px solid; border-color: grey; border-radius: 10px 20px 0 0; background-image: url('../gambar/kamar.png'); background-size: cover; width : 1100px; margin-left : 82px; margin-top : -70px ">
-            {{-- <img src="{{ asset('gambar/background.jpg') }}" class=" text-white h-50 imgfix mb-3" /> --}}
+        <div class="container">
+
+            <div class="display-4 " style="font-weight : 600; margin-top : 100px">Tipe Kamar</div>
+
+
+            <div class="card" style="margin-top : 5%; border : 1.5px solid; border-color : #3bbcdb;">
+                <img src="{{ asset('gambar/superior.jpeg') }}" class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title" style="font-size : 24; font-weight : 400">Kamar Superior</h5>
+                    <p class="card-text" style="12">
+                        Ruangan yang berukuran lebih luas dari kamar hotel pada umumnya, memberikan fasilitas berkualitas standar bagi pemesan.
+                    </p>
+                    <a href="#" class="btn btn-primary" style="float: right; font-weight : 600; border : 1.5px solid; border-color :#3bbcdb; background-color : white; color : #3bbcdb; margin-top : 40px;">Lihat Fasilitas >> </a>
+                </div>
+            </div>
+
+            <div class="card" style="margin-top : 5%; margin-bottom : 5%; border : 1.5px solid; border-color : #3bbcdb;">
+                <div class="card-body" style="text-align: -webkit-right;">
+                    <h5 class="card-title" style="font-size : 24; font-weight : 400">Kamar Deluxe</h5>
+                    <p class="card-text" style="12">
+                       Kamar yang memiliki ukuran lebih besar dibandingkan dengan kamar Superior, dengan segi interior dan fasilitas yang terkesan lebih mewah.
+                    </p>
+                    <a href="#" class="btn btn-primary" style="float: left;font-weight : 600; border : 1.5px solid; border-color :#3bbcdb; background-color : white; color : #3bbcdb; margin-top : 40px;">Lihat Fasilitas >> </a>
+                </div>
+                <img src="{{ asset('gambar/deluxe.jpg') }}" class="card-img-top" />
+            </div>
 
         </div>
+
+        {{-- <img style="margin-left: 50px;" src="{{ asset('gambar/superior.jpeg') }}" width="100" height="100" class="imgfix mb-3" /> --}}
+
+
+        {{-- <div class="container" style="margin-bottom: 100px; margin-top: 200px;"></div>
+        <div class="p-5 bg-dark text-white h-50  text-center" style="border:1px solid; border-color: grey; border-radius: 10px 20px 0 0; background-image: url('../gambar/kamar.png'); background-size: cover; width : 1100px; margin-left : 82px; margin-top : -70px "> --}}
+            {{-- <img src=" " class=" text-white h-50 imgfix mb-3" /> --}}
+
+        {{-- </div>
         <div class="container">
             <ul class="list-group">
                 <li class="list-group-item active" aria-current="true">
@@ -183,10 +255,10 @@
             </ul>
         </div>
         <div class="p-5 bg-dark text-white h-50  text-center" style="border:1px solid; border-color: grey; border-radius: 10px 20px 0 0; background-image: url('../gambar/kamar_deluxe.png'); background-size: cover; width : 1100px; margin-left : 82px; margin-top : 50px ">
-        </div>
+        </div> --}}
 
 
-        <div class="container">
+        {{-- <div class="container">
             <ul class="list-group">
                 <li class="list-group-item active" aria-current="true">
 
@@ -205,7 +277,7 @@
             </ul>
         </div>
 
-        <br>
+        <br> --}}
 
 
         <nav class="navbar fixed-top navbar-dark navbar-expand-md me-auto" style="background-color: #3bbcdb">

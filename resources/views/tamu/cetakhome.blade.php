@@ -69,11 +69,11 @@
 
         <div class="container" style="margin-top: 5%">
             <a href="/tamu/cetak" target="_blank" class="btn btn-success btn-sm active" role="button" aria-pressed="true">cetak semua</a>
-            
-        
+
+
 
             <table class="table mt-3">
-                <thead class="thead-dark">
+                <thead class="thead" style="color : white; background-color: #117a8b; border-bottom-style: hidden; border-top: hidden;">
                     <tr>
                         <th scope="col">Nama Tamu</th>
                         <th scope="col">Tanggal Check In</th>
@@ -89,7 +89,7 @@
                         <td>{{ $r->tgl_checkin }}</td>
                         <td>{{ $r->tgl_checkin }}</td>
                         <td>
-                            
+
                             <a target="_blank" href="/home/check/{{ $r->id_reservasi }} class="btn btn-info btn-sm active" role="button" aria-pressed="true">cetak</a>
 
                         </td>

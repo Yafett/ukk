@@ -46,7 +46,7 @@
 
 
         <table class="table mt-3">
-            <thead class="thead-dark">
+            <thead class="thead" style="color : white; background-color: #e39aa7; border-bottom-style: hidden; border-top: hidden;">
                 <tr>
                     <th scope="col">Nama Tamu</th>
                     <th scope="col">Tanggal Check In</th>

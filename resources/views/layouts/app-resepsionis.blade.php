@@ -35,6 +35,10 @@
             text-align: center;
         }
 
+        body {
+            background-color: #f7f7f7;
+        }
+
     </style>
 </head>
 
@@ -43,7 +47,7 @@
 
 
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark shadow-sm" style="background-color: #e39aa7;">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     Hotel

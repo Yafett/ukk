@@ -40,48 +40,48 @@ Route::post('/home', [App\Http\Controllers\ReservasiController::class, 'store'])
 // administator
 Route::middleware('role:admin')->get('/admin/dashboard', [App\Http\Controllers\KamarController::class, 'index'])->name('admin.dashboard');
 
-Route::get('/admin/dashboard/tambah', [App\Http\Controllers\KamarController::class, 'tambah'])->name('admin.dashboard.tambah');
-Route::post('/admin/dashboard/tambah', [App\Http\Controllers\KamarController::class, 'store']);
+Route::middleware('role:admin')->get('/admin/dashboard/tambah', [App\Http\Controllers\KamarController::class, 'tambah'])->name('admin.dashboard.tambah');
+Route::middleware('role:admin')->post('/admin/dashboard/tambah', [App\Http\Controllers\KamarController::class, 'store']);
 
-Route::get('/admin/dashboard/edit/{id}', [App\Http\Controllers\KamarController::class, 'edit'])->name('admin.dashboard.edit');
-Route::post('/admin/dashboard/edit/{id}', [App\Http\Controllers\KamarController::class, 'update']);
+Route::middleware('role:admin')->get('/admin/dashboard/edit/{id}', [App\Http\Controllers\KamarController::class, 'edit'])->name('admin.dashboard.edit');
+Route::middleware('role:admin')->post('/admin/dashboard/edit/{id}', [App\Http\Controllers\KamarController::class, 'update']);
 
-Route::get('/admin/dashboard/hapus/{id}', [App\Http\Controllers\KamarController::class, 'hapus'])->name('admin.dashboard.hapus');
+Route::middleware('role:admin')->get('/admin/dashboard/hapus/{id}', [App\Http\Controllers\KamarController::class, 'hapus'])->name('admin.dashboard.hapus');
 
-Route::get('/admin/dashboard/lihat/{id}', [App\Http\Controllers\KamarController::class, 'lihat'])->name('admin.dashboard.lihat  ');
+Route::middleware('role:admin')->get('/admin/dashboard/lihat/{id}', [App\Http\Controllers\KamarController::class, 'lihat'])->name('admin.dashboard.lihat  ');
 
 // fkamar
 Route::middleware('role:admin')->get('/admin/fkamar/dashboard', [App\Http\Controllers\FasilitasKamarController::class, 'index'])->name('admin.fkamar.dashboard');
 
-Route::get('/admin/fkamar/tambah', [App\Http\Controllers\FasilitasKamarController::class, 'tambah'])->name('admin.fkamar.tambah');
-Route::post('/admin/fkamar/tambah', [App\Http\Controllers\FasilitasKamarController::class, 'store']);
+Route::middleware('role:admin')->get('/admin/fkamar/tambah', [App\Http\Controllers\FasilitasKamarController::class, 'tambah'])->name('admin.fkamar.tambah');
+Route::middleware('role:admin')->post('/admin/fkamar/tambah', [App\Http\Controllers\FasilitasKamarController::class, 'store']);
 
-Route::get('/admin/fkamar/edit/{id}', [App\Http\Controllers\FasilitasKamarController::class, 'edit'])->name('admin.fkamar.edit ');
-Route::post('/admin/fkamar/edit/{id}', [App\Http\Controllers\FasilitasKamarController::class, 'update']);
+Route::middleware('role:admin')->get('/admin/fkamar/edit/{id}', [App\Http\Controllers\FasilitasKamarController::class, 'edit'])->name('admin.fkamar.edit ');
+Route::middleware('role:admin')->post('/admin/fkamar/edit/{id}', [App\Http\Controllers\FasilitasKamarController::class, 'update']);
 
-Route::get('/admin/fkamar/hapus/{id}', [App\Http\Controllers\FasilitasKamarController::class, 'hapus'])->name('admin.fkamar.hapus ');
+Route::middleware('role:admin')->get('/admin/fkamar/hapus/{id}', [App\Http\Controllers\FasilitasKamarController::class, 'hapus'])->name('admin.fkamar.hapus ');
 
 // fasilitas
 Route::middleware('role:admin')->get('/admin/fasilitas/dashboard', [App\Http\Controllers\FasilitasController::class, 'index'])->name('admin.fasilitas.dashboard');
 
-Route::get('/admin/fasilitas/tambah', [App\Http\Controllers\FasilitasController::class, 'tambah'])->name('admin.fasilitas.tambah');
-Route::post('/admin/fasilitas/tambah', [App\Http\Controllers\FasilitasController::class, 'store']);
+Route::middleware('role:admin')->get('/admin/fasilitas/tambah', [App\Http\Controllers\FasilitasController::class, 'tambah'])->name('admin.fasilitas.tambah');
+Route::middleware('role:admin')->post('/admin/fasilitas/tambah', [App\Http\Controllers\FasilitasController::class, 'store']);
 
-Route::get('/admin/fasilitas/edit/{id}', [App\Http\Controllers\FasilitasController::class, 'edit'])->name('admin.fasilitas.edit ');
-Route::post('/admin/fasilitas/edit/{id}', [App\Http\Controllers\FasilitasController::class, 'update']);
+Route::middleware('role:admin')->get('/admin/fasilitas/edit/{id}', [App\Http\Controllers\FasilitasController::class, 'edit'])->name('admin.fasilitas.edit ');
+Route::middleware('role:admin')->post('/admin/fasilitas/edit/{id}', [App\Http\Controllers\FasilitasController::class, 'update']);
 
-Route::get('/admin/fasilitas/hapus/{id}', [App\Http\Controllers\FasilitasController::class, 'hapus'])->name('admin.fasilitas.hapus');
+Route::middleware('role:admin')->get('/admin/fasilitas/hapus/{id}', [App\Http\Controllers\FasilitasController::class, 'hapus'])->name('admin.fasilitas.hapus');
 
 // resepsionis
 Route::middleware('role:resepsionis')->get('/resepsionis/dashboard', [App\Http\Controllers\ResepsionisController::class, 'index'])->name('resepsionis.dashboard');
-Route::post('/resepsionis/dashboard/search', [App\Http\Controllers\ResepsionisController::class, 'search'])->name('resepsionis.search');
-Route::post('/resepsionis/dashboard/filter', [App\Http\Controllers\ResepsionisController::class, 'filter'])->name('resepsionis.filter');
+Route::middleware('role:resepsionis')->post('/resepsionis/dashboard/search', [App\Http\Controllers\ResepsionisController::class, 'search'])->name('resepsionis.search');
+Route::middleware('role:resepsionis')->post('/resepsionis/dashboard/filter', [App\Http\Controllers\ResepsionisController::class, 'filter'])->name('resepsionis.filter');
 
-Route::get('/resepsionis/dashboard/hapus/{id}', [App\Http\Controllers\ResepsionisController::class, 'hapus'])->name('resepsionis.hapus');
+Route::middleware('role:resepsionis')->get('/resepsionis/dashboard/hapus/{id}', [App\Http\Controllers\ResepsionisController::class, 'hapus'])->name('resepsionis.hapus');
 
 // tamu
-Route::get('/tamu/check', [App\Http\Controllers\TamuController::class, 'index'])->name('tamu.check');
-Route::get('/tamu/cetak', [App\Http\Controllers\TamuController::class, 'cetak'])->name('tamu.cetak');
+Route::middleware('role:tamu')->get('/tamu/check', [App\Http\Controllers\TamuController::class, 'index'])->name('tamu.check');
+Route::middleware('role:tamu')->get('/tamu/cetak', [App\Http\Controllers\TamuController::class, 'cetak'])->name('tamu.cetak');
 Route::get('/home/fasilitas', [App\Http\Controllers\TamuController::class, 'fasilitas'])->name('tamu.fasilitas');
 Route::get('/home/kamar', [App\Http\Controllers\TamuController::class, 'kamar'])->name('tamu.kamar');
 Route::get('/home/success', [App\Http\Controllers\TamuController::class, 'success'])->name('tamu.succ');

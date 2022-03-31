@@ -17,7 +17,7 @@
 
 
   <table class="table">
-	<thead class="thead-dark">
+	<thead class="thead" style="color : white; background-color: #e39aa7; border-bottom-style: hidden; border-top: hidden;">
 	  <tr>
 		<th scope="col">Tipe Kamar</th>
 		<th scope="col">Nama Fasilitas</th>
@@ -47,7 +47,7 @@
 
    <div class="d-flex flex-column align-items-end">
 
-		<a href="/admin/fkamar/tambah" type="button" class="btn btn-success btn-circle btn-sm">+</a>
+		<a href="/admin/fkamar/tambah" type="button" class="btn btn-circle btn-sm" style="background-color: #e39aa7; border-color: #e39aa7; color : white;">+</a>
 
     </div>
 

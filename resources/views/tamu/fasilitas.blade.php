@@ -83,7 +83,7 @@
                         <div class="input-group mb-3 p-3">
                             <input style="" type="text" class="form-control" placeholder="cari fasilitas..." aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
-                                <span class="input-group-text" id="basic-addon2">Search</span>
+                                <span class="input-group-text" id="basic-addon2 ">Search</span>
                             </div>
                         </div>
                     </div>
@@ -98,6 +98,7 @@
 
             <div class="album py-5 " style="background-image: url('../gambar/hotelb.png');">
             <div class="container">
+
 
                 <div class="row">
 

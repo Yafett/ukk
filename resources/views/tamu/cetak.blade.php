@@ -14,7 +14,7 @@
 
 
         <table class="table mt-4">
-            <thead class="thead-dark">
+            <thead class="thead-dark" >
                 <tr>
                     <th scope="col">Nama Tamu</th>
                     <th scope="col">Tanggal Check In</th>

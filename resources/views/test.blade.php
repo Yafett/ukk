@@ -32,9 +32,10 @@
 </head>
 
 <body>
+
     @foreach ($reservasi as $r)
-        
-    
+
+
     <div class="main">
         <div class="two" style="border-color: #32c671;">
             {{-- <div class="d-flex justify-content-end px-3 pt-1"><i class="mdi mdi-star-outline pr-1 star"></i><i
@@ -46,25 +47,25 @@
                 style="font-size : 18px; text-align : center; font-family: sans-serif; color : #32c671; font-weight : 600; margin-top : -2px; margin-bottom: 20px;">
                 Pemesanan
                 Berhasil</p>
-                
-    
-                
+
+
+
                 <div class="container p-3" style="font-family: sans-serif;">
-                    
+
                     <h2 class="name">Nama Pemesan</h2>
                     <span class="quote2 pl-2">{{ $r->nama_pemesan }}</span>
-                    
+
                     <h2 class="name">No Telepon</h2>
                     <span class="quote2 pl-2">{{ $r->no_telp }}</span>
-                    
+
                     <h2 class="name">Tipe Kamar</h2>
                     <span class="quote2 pl-2">{{ $r->tipe_kamar }}</span>
-                    
+
                     <h2 class="name">Tanggal</h2>
                     <span class="quote2 pl-2">In : {{ $r->tgl_checkin }}</span><br>
                     <span class="quote2 pl-2">Out : {{ $r->tgl_checkout }}</span>
                 </div>
-                
+
                 <div class="col" style="margin-left: 55px;">
                     {{-- <button class="button button4" href="/home" role="button" aria-pressed="true">Kembali</button> --}}
                     {{-- <button class="btn button-success" role="button" aria-pressed="true" href='/tamu/check'>Cetak</button> --}}
@@ -73,13 +74,13 @@
 
                 </div>
             </div>
-            
+
         </div>
-        
-        
+
+
     </main>
     @endforeach
-    
+
 </body>
 
 </html>

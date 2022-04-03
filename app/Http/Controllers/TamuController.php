@@ -10,7 +10,7 @@ class TamuController extends Controller
     public function index()
     {
 
-        // $reservasi = DB::table('tb_reservasi')->get();
+        $reservasi = DB::table('tb_reservasi')->get();
 
         $test = auth()->user()->id;
 
@@ -32,7 +32,7 @@ class TamuController extends Controller
 
         // dd($reservasi);
 
-        return view('tamu.cetak', ['reservasi' => $reservasi]);
+        return view('tamu.cewtak', ['reservasi' => $reservasi]);
     }
 
     public function fasilitas()
@@ -46,9 +46,11 @@ class TamuController extends Controller
     public function kamar()
     {
 
-        $fkamar = DB::table('tb_fkamar')->get();
+        $super = DB::table('tb_fkamar')->where('tipe_kamar', 'Superior')->get();
 
-        return view('tamu.kamar', ['fkamar' => $fkamar]);
+        $deluxe = DB::table('tb_fkamar')->where('tipe_kamar', 'Deluxe')->get();
+
+        return view('tamu.kamar', compact('super', 'deluxe'));
     }
 
     public function success()
@@ -61,7 +63,7 @@ class TamuController extends Controller
 
         // dd($reservasi);
 
-        return view('test', ['reservasi' => $reservasi]);
+        return view('tamu.checkout', ['reservasi' => $reservasi]);
     }
 
     public function cetakhome()
@@ -79,7 +81,7 @@ class TamuController extends Controller
 
     public function cetaksatu($id)
     {
-      
+
          $reservasi = DB::table('tb_reservasi')->where('id_reservasi', $id)->get();
 
         // dd($reservasi);

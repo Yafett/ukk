@@ -69,10 +69,10 @@
 
         <div class="container" style="margin-top: 5%">
             <a href="/tamu/cetak" target="_blank" class="btn btn-success btn-sm active" role="button" aria-pressed="true">cetak semua</a>
-            
-            
-            
-            <a href="/home" target="_blank" class="btn btn-success btn-sm active" role="button" aria-pressed="true">Kembali</a>
+
+
+
+            {{-- <a href="/home" target="_blank" class="btn btn-success btn-sm active" role="button" aria-pressed="true">Kembali</a> --}}
 
 
             <table class="table mt-3">
@@ -90,9 +90,9 @@
                     <tr>
                         <td>{{ $r->nama_tamu }}</td>
                         <td>{{ $r->tgl_checkin }}</td>
-                        <td>{{ $r->tgl_checkin }}</td>
+                        <td>{{ $r->tgl_checkout }}</td>
                         <td>
-                            
+
                             <a target="_blank" href="/home/check/{{ $r->id_reservasi }} class="btn btn-info btn-sm active" role="button" aria-pressed="true">cetak</a>
 
                         </td>

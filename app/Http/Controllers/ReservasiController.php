@@ -9,10 +9,11 @@ class ReservasiController extends Controller
 {
     public function store(Request $request){
 
+
         $awal = DB::table('tb_kamar')->where('tipe_kamar', $request->tipe_kamar)->value('jumlah_kamar');
 
         // dd($awal);
-        
+
 
         DB::table('tb_kamar')->where('tipe_kamar', $request->tipe_kamar)->update([
             'jumlah_kamar' => $awal - $request->jumlah_kamar
@@ -49,6 +50,7 @@ class ReservasiController extends Controller
             'updated_at' => date("Y-m-d H:i:s")
         ];
 
+        // dd($data);
         DB::table('tb_reservasi')->insert($data);
         // return back()->with('success','Data Berhasil di Input');
         return redirect()->route('tamu.succ');

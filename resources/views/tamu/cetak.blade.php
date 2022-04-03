@@ -28,7 +28,7 @@
                     <tr>
                         <td>{{ $r->nama_tamu }}</td>
                         <td>{{ $r->tgl_checkin }}</td>
-                        <td>{{ $r->tgl_checkin }}</td>
+                        <td>{{ $r->tgl_checkout }}</td>
 
                     </tr>
                 @endforeach

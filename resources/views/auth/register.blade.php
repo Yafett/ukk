@@ -32,7 +32,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <style>
         body {
-            background-color: #f7f7f7;
+            background-image : url("gambar/reg.jpg");
+            background-size: cover;
         }
 
     </style>
@@ -44,7 +45,7 @@
 
     <div class="limiter">
         <div class="container-login100">
-            <div class="wrap-login100 p-t-50 p-b-90" style="background-color : #f7f7f7">
+            <div class="wrap-login100 p-t-50 p-b-90" style="background-color : transparent">
 
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
@@ -143,10 +144,10 @@
                         </div> --}}
 
                         <div class="container-login100-form-btn m-t-17" style="place-content: center; font-size : 12px;">
-                            <button type="submit" class="login100-form-btn" style="font-family: sans-serif; background-color : #747778">
+                            <button type="submit" class="login100-form-btn" style="font-family: sans-serif; background-color : #00a3e8">
                                 {{ __('Register') }}
                             </button>
-                            <span>udah punya akun?
+                            <span class="text-white">udah punya akun?
 
                                 <a style='color : rgb(219, 79, 79)' href="/login">login aja</a>
                             </span>

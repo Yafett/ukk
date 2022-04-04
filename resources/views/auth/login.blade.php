@@ -36,7 +36,9 @@
 
   <style>
         body {
-            background-color: #f7f7f7;
+            /* background-color: red; */
+            background-image : url("gambar/hotel.jpg");
+            background-size: cover;
         }
 
     </style>
@@ -47,7 +49,7 @@
 
     <div class="limiter">
         <div class="container-login100">
-            <div class="wrap-login100 p-t-50 p-b-90" style="background-color : #f7f7f7">
+            <div class="wrap-login100 p-t-50 p-b-90" style="background-color : transparent">
                 <form class="login100-form validate-form flex-sb flex-w" method="POST" action="{{ route('login') }}">
                     @csrf
 
@@ -89,7 +91,7 @@
                         {{-- <span class="focus-input100"></span> --}}
                     </div>
                     <div class="container-login100-form-btn m-t-17" style="place-content: center; font-size : 12px;">
-                        <button type="submit" class="login100-form-btn" style="font-family: sans-serif; background-color : #747778">
+                        <button type="submit" class="login100-form-btn" style="font-family: sans-serif; background-color : #01a2e7">
                             {{ __('Login') }}
                         </button>
                         <span>belum punya akun?

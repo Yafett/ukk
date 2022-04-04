@@ -136,7 +136,7 @@
                 <div class="col-md">
                     <div class="form-floating">
                         <button class="btn" onclick="isEmpty()" type="submit"
-                            style="height: 58px;color:#f7f7f7; background-color:#7b7b76">Kirim</button>
+                            style="height: 58px;color:#f7f7f7; background-color:#b5e61d">Kirim</button>
 
                     </div>
                 </div>
@@ -208,7 +208,7 @@
 
     </div>
 
-    <nav class="navbar fixed-top navbar-dark navbar-expand-md" style="background-color: #7b7b76">
+    <nav class="navbar fixed-top navbar-dark navbar-expand-md" style="background-color: #b5e61d">
         <div class="container">
             {{-- <a class="navbar-brand" href="{{ url('/') }}">
                 Tadika Mesra

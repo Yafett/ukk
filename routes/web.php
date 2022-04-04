@@ -81,7 +81,7 @@ Route::middleware('role:resepsionis')->get('/resepsionis/dashboard/hapus/{id}', 
 
 // tamu
 Route::middleware('role:tamu')->get('/tamu/check', [App\Http\Controllers\TamuController::class, 'index'])->name('tamu.check');
-Route::middleware('role:tamu')->get('/tamu/cetak', [App\Http\Controllers\TamuController::class, 'cetak'])->name('tamu.cetak');
+Route::middleware('role:tamu')->get('   cetak', [App\Http\Controllers\TamuController::class, 'cetak'])->name('tamu.cetak');
 Route::get('/home/fasilitas', [App\Http\Controllers\TamuController::class, 'fasilitas'])->name('tamu.fasilitas');
 Route::get('/home/kamar', [App\Http\Controllers\TamuController::class, 'kamar'])->name('tamu.kamar');
 Route::get('/home/success', [App\Http\Controllers\TamuController::class, 'success'])->name('tamu.succ');

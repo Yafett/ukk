@@ -1,7 +1,8 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 
-<div class="container">'
-    @foreach ($reservasi as $r)
+<body onafterprint="window.close()">
+    <div class="container">'
+        @foreach ($reservasi as $r)
     <div class="container">
         <div class="row">
             <div class="col-4">
@@ -100,7 +101,9 @@
 
 @endforeach
 
+
+
 <script type="text/javascript">
     window.print();
-    // window.close();
 </script>
+</body>

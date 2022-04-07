@@ -48,4 +48,19 @@ class ResepsionisController extends Controller
 
         return redirect('resepsionis/dashboard');
     }
+
+    public function checkin($id)
+    {
+
+        DB::table('tb_reservasi')->where('id_reservasi', $id)->update([
+            'status' => 'b'    
+        ]);
+
+        
+        $reservasi = DB::table('tb_reservasi')->get();
+
+        return view('resepsionis.dashboard', ['reservasi' => $reservasi]);
+
+        // return redirect('resepsionis/dashboard');
+    }
 }

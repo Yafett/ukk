@@ -51,6 +51,7 @@
                     <th scope="col">Nama Tamu</th>
                     <th scope="col">Tanggal Check In</th>
                     <th scope="col">Tanggal Check Out</th>
+                    <th scope="col">Status</th>
                     <th scope="col">Aksi</th>
                 </tr>
             </thead>
@@ -62,9 +63,22 @@
                         <td>{{ $r->tgl_checkin }}</td>
                         <td>{{ $r->tgl_checkin }}</td>
                         <td>
+                            @if ($r->status == 'a')
+                            <span class="badge badge-secondary">belum check-in</span>
+                            @endif
+                            @if ($r->status == 'b')
+                            <span class="badge badge-success">sudah checkin</span></td>
+                            @endif
+                            
+                        <td>
 
-                            <a href="/resepsionis/dashboard/hapus/{{ $r->id_reservasi }}" class="btn btn-success btn-sm active" role="button" aria-pressed="true">Check
-                                In</a>
+                            <form action="/resepsionis/status/edit/{{ $r->id_reservasi }}" method="post">
+                                {{ csrf_field() }}
+                                <input class="btn btn-success ml-3" type="submit" value="Simpan Data">
+                                </form>
+                            <a href="/resepsionis/dashboard/hapus/{{ $r->id_reservasi }}" class="btn btn-danger btn-sm active" role="button" aria-pressed="true">Check
+                                Out</a>
+                                <a href="/resepsionis/dashboard/hapus/{{ $r->id_reservasi }}" class="btn btn-secondary   btn-sm active" role="button" aria-pressed="true">Batalkan Pemesanan</a>
 
                         </td>
                     </tr>

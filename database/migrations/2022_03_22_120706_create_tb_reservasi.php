@@ -17,7 +17,8 @@ return new class extends Migration
             $table->string('nama_tamu'); 
             $table->string('tipe_kamar'); 
             $table->string('email');
-            $table->integer('no_telp');
+            $table->string('no_telp');
+            $table->string('status');
             $table->integer('jumlah_kamar');
             $table->integer('id_user');
             $table->timestamps();

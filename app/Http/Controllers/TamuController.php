@@ -59,7 +59,8 @@ class TamuController extends Controller
 
         //  DB::table('tb_reservasi')->get();
 
-         $reservasi =DB::table('tb_reservasi')->where('id_user', $test)->paginate(1);
+        // dd($test);
+        $reservasi =DB::table('tb_reservasi')->where('id_user', $test)->get();
 
         // dd($reservasi);
 
@@ -74,7 +75,6 @@ class TamuController extends Controller
 
          $reservasi =DB::table('tb_reservasi')->where('id_user', $test)->get();
 
-        // dd($reservasi);
 
         return view('tamu.cetakhome', ['reservasi' => $reservasi]);
     }

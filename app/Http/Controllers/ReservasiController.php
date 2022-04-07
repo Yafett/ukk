@@ -15,10 +15,7 @@ class ReservasiController extends Controller
         // dd($awal);
 
 
-        DB::table('tb_kamar')->where('tipe_kamar', $request->tipe_kamar)->update([
-            'jumlah_kamar' => $awal - $request->jumlah_kamar
-        ]);
-
+     
         // dd($request->jumlah_kamar);
 
         $test = auth()->user()->id;
@@ -46,9 +43,14 @@ class ReservasiController extends Controller
             'nama_tamu' => $request->tamu,
             'tipe_kamar' => $request->tipe_kamar,
             'id_user' => $test,
+            'status' => 'a',
             'created_at' => date("Y-m-d H:i:s"),
             'updated_at' => date("Y-m-d H:i:s")
         ];
+        DB::table('tb_kamar')->where('tipe_kamar', $request->tipe_kamar)->update([
+            
+            'jumlah_kamar' => $awal - $request->jumlah_kamar
+        ]);
 
         // dd($data);
         DB::table('tb_reservasi')->insert($data);

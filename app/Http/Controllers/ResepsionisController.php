@@ -98,4 +98,18 @@ class ResepsionisController extends Controller
 
         return redirect('resepsionis/dashboard');
     }
+    public function advsearch(Request $request)
+    {
+        // dd($request);
+        
+        $req = DB::table('tb_reservasi')->where('tgl_checkout', $request->tgl_checkout)->orWhere('status', $request->status)->get();
+
+
+        $reservasi = DB::table('tb_reservasi')->get();
+
+        return view('resepsionis.dashboard', ['reservasi' => $req]);
+
+        // return redirect('resepsionis/dashboard')->with('reservasi',$req);
+    }
+
 }

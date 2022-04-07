@@ -79,6 +79,7 @@ Route::middleware('role:resepsionis')->post('/resepsionis/dashboard/filter', [Ap
 Route::middleware('role:resepsionis')->post('/resepsionis/status/in/{id}', [App\Http\Controllers\ResepsionisController::class, 'checkin'])->name('resepsionis.checkin');
 Route::middleware('role:resepsionis')->post('/resepsionis/status/out/{id}', [App\Http\Controllers\ResepsionisController::class, 'checkout'])->name('resepsionis.checkin');
 Route::middleware('role:resepsionis')->post('/resepsionis/status/batal/{id}', [App\Http\Controllers\ResepsionisController::class, 'batalkan'])->name('resepsionis.checkin');
+Route::middleware('role:resepsionis')->post('/resepsionis/status/advsearch', [App\Http\Controllers\ResepsionisController::class, 'advsearch'])->name('resepsionis.checkin');
 
 Route::middleware('role:resepsionis')->get('/resepsionis/dashboard/hapus/{id}', [App\Http\Controllers\ResepsionisController::class, 'hapus'])->name('resepsionis.hapus');
 

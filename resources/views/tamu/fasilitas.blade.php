@@ -67,14 +67,14 @@
             </div>
         </section>
 
-        <div  class="p-5 bg-dark text-white h-50  text-center" style="border-radius: 10px 20px; background-image: url('../gambar/background.jpg'); background-size: cover; width : 1100px; margin-left : 82px; margin-top : -240px ">
+        <div  class="p-5 bg-dark text-white h-50  text-center" style="border-radius: 10px 20px; background-image: url('../gambar/background.jpg'); background-size: cover; width : 1100px; margin-left : 120px; margin-top : -240px ">
             {{-- <img src="{{ asset('gambar/background.jpg') }}" class=" text-white h-50 imgfix mb-3" /> --}}
 
             <div class="display-4 text-dark" style="font-weight: 600">
                 Fasilitas Umum
             </div>
 
-            <form style="margin-top: -40px" class="d-flex" action="{{ route('resepsionis.search') }}" method="POST">
+            {{-- <form style="margin-top: -40px" class="d-flex" action="{{ route('resepsionis.search') }}" method="POST">
                 @csrf
 
                 <div class="container" style="margin-top : 60px;">
@@ -88,9 +88,9 @@
                         </div>
                     </div>
                 </div>
-            </form>
+            </form> --}}
 
-            <p class="text-dark" style="margin-top: -30px">
+            <p class="text-dark" style="margin-top: 30px">
                 berikut adalah daftar fasilitas umum yang dimiliki oleh hotel Tadika Mesra
             </p>
         </div>
@@ -113,12 +113,12 @@
                                 <p class="card-text">{{ $f->keterangan }}</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary" style="
+                                        {{-- <button type="button" class="btn btn-sm btn-outline-secondary" style="
                                         color: #ef95b1;
                                         background-color: #ffffff;
                                         border-color: #ef95b1;
                                         margin-left: 160;
-                                    ">View</button>
+                                    ">View</button> --}}
                                     </div>
 
                                 </div>

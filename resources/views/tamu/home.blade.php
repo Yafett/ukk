@@ -39,7 +39,8 @@
         }
 
         body {
-            background-color: #f7f7f7;
+            background-color: #b97a57;
+            background-repeat: no-repeat;
         }
 
         .form-control1 {
@@ -76,8 +77,8 @@
     @endif
 
     {{-- Jumbotron --}}
-    <div class="jumbotron" style="height: 92.5vh; margin-bottom : 0;">
-        <h1 class="display-4 text-dark" style="margin-top : 100px;">Tadika Mesra</h1>
+    <div class="jumbotron" style="height: 92.5vh; margin-top : 15px;">
+        <h1 class="display-4 text-dark" style="margin-top : 70px;">Tadika Mesra</h1>
         <p class="lead">Hotel anak, membawa anak dalam kebahagiaan dan keceriaan. </p>
         {{-- <hr class="my-4"> --}}
         {{-- <p>It uses utility classes for typography and spacing to space content out within the larger container.</p> --}}
@@ -91,7 +92,7 @@
                         @if (session('success'))
                             <div class="row">
                                 <div class="card-body">
-                                    <div class="alert alert-success" role="alert" style="margin-left: 15px;width: 690px;">
+                                    <div class="alert alert-success" role="alert" style="margin-left: 15px; width: 690px;">
                                         Data Berhasil di Input
                                         <a class="bi bi-printer-fill bi-2x" style="color: #155724; " href="/tamu/check"></a>
                                         {{-- <a class="btn btn-lg" href="/login" role="button" style="color: #f7f7f7; background-color : #747778">cetak</a> --}}
@@ -142,10 +143,10 @@
                 </div>
             </div>
         </div>
-
-        <div style="argin-left: 10px;" class="collapse" id="myCollapsible">
+ 
+        <div style="margin-left: 10px; width : 57%; font-weight : 600" class="collapse  text-white" id="myCollapsible">
             <div class="form-group row tmbhdikit">
-                <div class="display-6 mt-5 mb-5">
+                <div class="display-6 mt-5 mb-5" style="font-weight: 400">
                     Form Pemesan
                 </div>
                 <label for="pemesan" class="col-sm-2 col-form-label">Nama Pemesan</label>
@@ -196,12 +197,11 @@
                                     <input type="button" onclick="resetForm()" class="btn btn-secondary btn-lg" value="Reset">
                                 </div>
                             </div> --}}
-            <button class="btn mb-5" style="color: #f7f7f7; background-color : #747778">Konfirmasi Pemesanan</button>
+            <button class="btn mb-5 " style="color: #202020; background-color : #b5e61d">Konfirmasi Pemesanan</button>
             </form>
         </div>
     @else
-        <a class="btn btn-lg" href="/login" role="button" style="color: #f7f7f7; background-color : #747778">Pesan
-            Saiki</a>
+        <a class="btn btn-lg" href="/login" role="button" style="color: #ffffff; background-color : #b5e61d">Pesan Sekarang </a>
 
     @endauth
     @endif
@@ -252,10 +252,10 @@
                         @else
                             <a href="/home" style="color : white; text-decoration : none;"
                                 class="ml-3 text-sm text-gray-700 dark:text-gray-500 underline p-1">Home</a>
-                            <a href="/home/kamar" style="color : white; text-decoration : none;"
+                            {{-- <a href="/home/kamar" style="color : white; text-decoration : none;"
                                 class="ml-3 text-sm text-gray-700 dark:text-gray-500 underline p-1">Kamar</a>
                             <a href="/home/fasilitas" style="color : white; text-decoration : none;"
-                                class="ml-3 text-sm text-gray-700 dark:text-gray-500 underline p-1">Fasilitas</a>
+                                class="ml-3 text-sm text-gray-700 dark:text-gray-500 underline p-1">Fasilitas</a> --}}
 
                             <a href="{{ route('login') }}" style="color : white; text-decoration : none;"
                                 class="ml-3 text-sm text-gray-700 dark:text-gray-500 underline p-1">Log in</a>

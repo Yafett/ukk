@@ -49,10 +49,13 @@
 
     <div class="limiter">
         <div class="container-login100">
+            
             <div class="wrap-login100 p-t-50 p-b-90" style="background-color : transparent">
+
+                
                 <form class="login100-form validate-form flex-sb flex-w" method="POST" action="{{ route('login') }}">
                     @csrf
-
+ 
                     {{-- <span class="login100-form-title p-b-51" style="font-family: sans-serif">
                         {{ __('Login') }}
                     </span> --}}
@@ -90,17 +93,30 @@
                         {{-- <input class="input100" type="password" name="pass" placeholder="Password"> --}}
                         {{-- <span class="focus-input100"></span> --}}
                     </div>
-                    <div class="container-login100-form-btn m-t-17" style="place-content: center; font-size : 12px;">
-                        <button type="submit" class="login100-form-btn" style="font-family: sans-serif; background-color : #01a2e7">
-                            {{ __('Login') }}
-                        </button>
-                        <span>belum punya akun?
+                         @if (session('success'))
 
-                            <a style='color : rgb(219, 79, 79)' href="/register">daftar dulu</a>
-                        </span>
-                    </div>
+            <div class="alert alert-success" role="alert" style="width: 1000px; ">
+                Akun Berhasil di Regristasi, silahkan Login !
+                <a class="bi bi-printer-fill bi-2x" style="color: #155724;  " href="/tamu/check"></a>
+                {{-- <a class="btn btn-lg" href="/login" role="button" style="color: #f7f7f7; background-color : #747778">cetak</a> --}}
+            </div>
+            @endif
+            <div class="container-login100-form-btn m-t-17" style="place-content: center; font-size : 12px;">
+                <button type="submit" class="login100-form-btn" style="font-family: sans-serif; background-color : #01a2e7">
+                    {{ __('Login') }}
+                </button>
+                <span>belum punya akun?
+
+                    <a style='color : rgb(219, 79, 79)' href="/register">daftar</a>
+                </span>
+                
+            </div>
+        </div>
+
+                   
 
                 </form>
+          
             </div>
         </div>
     </div>

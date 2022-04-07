@@ -435,7 +435,7 @@ v<html lang="en">
 
             <div class="container">
 
-                <div class="display-4 " style="font-weight : 600; margin-top : 100px">Tipe Kamar</div>
+                <div class="display-4 " style="font-weight : 600; margin-top : 80px">Tipe Kamar</div>
 
 
                 <div class="card" style="margin-top : 5%; border : 1.5px solid; border-color : #3bbcdb;">
@@ -537,7 +537,7 @@ v<html lang="en">
             </div>
 
 
-            <div class="row" style="width: 99.2%; margin-left: 0px;">
+            {{-- <div class="row" style="width: 99.2%; margin-left: 0px;">
 
                 <div class="container-img">
                     <img src="{{ asset('gambar/deluxe.jpg') }}" alt="Avatar" class="image" width="690" height="690">
@@ -553,7 +553,7 @@ v<html lang="en">
                       <div class="text">Hello World</div>
                     </div>
                   </div>
-            </div>
+            </div> --}}
             <nav class="navbar fixed-top navbar-dark navbar-expand-md me-auto" style="background-color: #3bbcdb">
                 <div class="container">
                     {{-- <a class="navbar-brand" href="{{ url('/') }}">

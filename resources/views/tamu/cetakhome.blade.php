@@ -68,7 +68,7 @@
         <br>
 
         <div class="container" style="margin-top: 5%">
-            <a href="/tamu/cetak" target="_blank" class="btn btn-success btn-sm active" role="button" aria-pressed="true">cetak semua</a>
+            <a href="/cetak" target="_blank" class="btn btn-success btn-sm active" role="button" aria-pressed="true">cetak semua</a>
 
 
 

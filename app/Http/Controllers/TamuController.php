@@ -32,7 +32,7 @@ class TamuController extends Controller
 
         // dd($reservasi);
 
-        return view('tamu.cewtak', ['reservasi' => $reservasi]);
+        return view('tamu.cetak', ['reservasi' => $reservasi]);
     }
 
     public function fasilitas()

@@ -144,12 +144,12 @@
                         </div> --}}
 
                         <div class="container-login100-form-btn m-t-17" style="place-content: center; font-size : 12px;">
-                            <button type="submit" class="login100-form-btn" style="font-family: sans-serif; background-color : #00a3e8">
+                            <button type="submit" class="login100-form-btn" stylefont-family: sans-serif; background-color : #00a3e8">
                                 {{ __('Register') }}
                             </button>
-                            <span class="text-white">udah punya akun?
+                            <span class="">sudah punya akun?
 
-                                <a style='color : rgb(219, 79, 79)' href="/login">login aja</a>
+                                <a style='color : rgb(255, 255, 255)' href="/login">login</a>
                             </span>
                         </div>
 

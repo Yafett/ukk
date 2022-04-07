@@ -76,7 +76,9 @@ Route::middleware('role:admin')->get('/admin/fasilitas/hapus/{id}', [App\Http\Co
 Route::middleware('role:resepsionis')->get('/resepsionis/dashboard', [App\Http\Controllers\ResepsionisController::class, 'index'])->name('resepsionis.dashboard');
 Route::middleware('role:resepsionis')->post('/resepsionis/dashboard/search', [App\Http\Controllers\ResepsionisController::class, 'search'])->name('resepsionis.search');
 Route::middleware('role:resepsionis')->post('/resepsionis/dashboard/filter', [App\Http\Controllers\ResepsionisController::class, 'filter'])->name('resepsionis.filter');
-Route::middleware('role:resepsionis')->post('/resepsionis/status/edit/{id}', [App\Http\Controllers\ResepsionisController::class, 'checkin'])->name('resepsionis.checkin');
+Route::middleware('role:resepsionis')->post('/resepsionis/status/in/{id}', [App\Http\Controllers\ResepsionisController::class, 'checkin'])->name('resepsionis.checkin');
+Route::middleware('role:resepsionis')->post('/resepsionis/status/out/{id}', [App\Http\Controllers\ResepsionisController::class, 'checkout'])->name('resepsionis.checkin');
+Route::middleware('role:resepsionis')->post('/resepsionis/status/batal/{id}', [App\Http\Controllers\ResepsionisController::class, 'batalkan'])->name('resepsionis.checkin');
 
 Route::middleware('role:resepsionis')->get('/resepsionis/dashboard/hapus/{id}', [App\Http\Controllers\ResepsionisController::class, 'hapus'])->name('resepsionis.hapus');
 

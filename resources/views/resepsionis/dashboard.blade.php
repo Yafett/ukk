@@ -69,17 +69,30 @@
                             @if ($r->status == 'b')
                             <span class="badge badge-success">sudah checkin</span></td>
                             @endif
+                            @if ($r->status == 'c')
+                            <span class="badge badge-info">sudah checkout</span></td>
+                            @endif
                             
                         <td>
+                            {{-- <div class="row"> --}}
 
-                            <form action="/resepsionis/status/edit/{{ $r->id_reservasi }}" method="post">
+                                @if($r->status == 'a')
+                                <form action="/resepsionis/status/in/{{ $r->id_reservasi }}" method="post">
+                                    {{ csrf_field() }}
+                                <input class="btn btn-success" type="submit" value="check-in">
+                                </form>      
+                            @endif
+                            @if($r->status == 'b')
+                            <form action="/resepsionis/status/out/{{ $r->id_reservasi }}" method="post">
                                 {{ csrf_field() }}
-                                <input class="btn btn-success ml-3" type="submit" value="Simpan Data">
-                                </form>
-                            <a href="/resepsionis/dashboard/hapus/{{ $r->id_reservasi }}" class="btn btn-danger btn-sm active" role="button" aria-pressed="true">Check
-                                Out</a>
-                                <a href="/resepsionis/dashboard/hapus/{{ $r->id_reservasi }}" class="btn btn-secondary   btn-sm active" role="button" aria-pressed="true">Batalkan Pemesanan</a>
-
+                                <input class="btn btn-danger" type="submit" value="check-out">
+                            </form>   
+                            @endif
+                            <form action="/resepsionis/status/batal/{{ $r->id_reservasi }}" method="post">
+                                {{ csrf_field() }}
+                                <input class="btn btn-secondary" type="submit" value="batalakan">
+                            </form> 
+                        {{-- </div> --}}
                         </td>
                     </tr>
                 @endforeach

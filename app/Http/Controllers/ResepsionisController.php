@@ -59,8 +59,43 @@ class ResepsionisController extends Controller
         
         $reservasi = DB::table('tb_reservasi')->get();
 
-        return view('resepsionis.dashboard', ['reservasi' => $reservasi]);
+        // return view('resepsionis.dashboard', ['reservasi' => $reservasi]);
 
-        // return redirect('resepsionis/dashboard');
+        return redirect('resepsionis/dashboard');
+    }
+   
+    public function checkout($id)
+    {
+
+        DB::table('tb_reservasi')->where('id_reservasi', $id)->update([
+            'status' => 'c'    
+        ]); 
+
+        
+        $reservasi = DB::table('tb_reservasi')->get();
+
+        // return view('resepsionis.dashboard', ['reservasi' => $reservasi]);
+
+        return redirect('resepsionis/dashboard');
+    }
+
+    public function batalkan($id)
+    {
+        
+        $jumlah = DB::table('tb_reservasi')->where('id_reservasi', $id)->value('jumlah_kamar'); 
+        
+        $jml_kamar = DB::table('tb_kamar')->where('id_kamar', $id)->value('jumlah_kamar');
+        
+        DB::table('tb_kamar')->where('id_kamar', $id)->update([
+            'jumlah_kamar' => $jumlah + $jml_kamar
+        ]);
+        
+        DB::table('tb_reservasi')->where('id_reservasi', $id)->delete(); 
+
+        $reservasi = DB::table('tb_reservasi')->get();
+
+        // return view('resepsionis.dashboard', ['reservasi' => $reservasi]);
+
+        return redirect('resepsionis/dashboard');
     }
 }

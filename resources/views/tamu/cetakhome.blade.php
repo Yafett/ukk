@@ -90,8 +90,26 @@
                         <td>{{ $r->tgl_checkin }}</td>
                         <td>
 
-                            <a target="_blank" href="/home/check/{{ $r->id_reservasi }} class="btn btn-info btn-sm active" role="button" aria-pressed="true">cetak</a>
+                            <a target="_blank" href="/home/check/{{ $r->id_reservasi }} class=" btn btn-info btn-sm active" role="button" aria-pressed="true">cetak</a>
+                            @if($r->status == 'a')
+                            <form action="/tamu/status/in/{{ $r->id_reservasi }}" method="post">
+                                {{ csrf_field() }}
+                                <input class="btn btn-success" type="submit" value="check-in">
+                            </form>
+                            @endif
+                            @if($r->status == 'b')
+                            <form action="/tamu/status/out/{{ $r->id_reservasi }}" method="post">
+                                {{ csrf_field() }}
+                                <input class="btn btn-danger" type="submit" value="check-out">
+                            </form>
+                            @endif
+                            @if($r->status == 'a' || $r->status == 'b')
 
+                            <form action="/tamu/status/batal/{{ $r->id_reservasi }}" method="post">
+                                {{ csrf_field() }}
+                                <input class="btn btn-secondary" type="submit" value="batalakan">
+                            </form>
+                            @endif
                         </td>
 
                     </tr>

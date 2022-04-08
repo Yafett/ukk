@@ -81,8 +81,11 @@ Route::middleware('role:resepsionis')->post('/resepsionis/status/out/{id}', [App
 Route::middleware('role:resepsionis')->post('/resepsionis/status/batal/{id}', [App\Http\Controllers\ResepsionisController::class, 'batalkan'])->name('resepsionis.checkin');
 Route::middleware('role:resepsionis')->post('/resepsionis/status/advsearch', [App\Http\Controllers\ResepsionisController::class, 'advsearch'])->name('resepsionis.checkin');
 
-Route::middleware('role:resepsionis')->get('/resepsionis/dashboard/hapus/{id}', [App\Http\Controllers\ResepsionisController::class, 'hapus'])->name('resepsionis.hapus');
+Route::middleware('role:tamu')->post('/tamu/status/out/{id}', [App\Http\Controllers\TamuController::class, 'checkout'])->name('resepsionis.checkin');
+Route::middleware('role:tamu')->post('/tamu/status/batalkan/{id}', [App\Http\Controllers\TamuController::class, 'batalkan'])->name('resepsionis.checkin');
+Route::middleware('role:tamu')->post('/tamu/status/in/{id}', [App\Http\Controllers\TamuController::class, 'checkin'])->name('resepsionis.checkin');
 
+Route::middleware('role:resepsionis')->get('/resepsionis/dashboard/hapus/{id}', [App\Http\Controllers\ResepsionisController::class, 'hapus'])->name('resepsionis.hapus');
 
 // tamu
 Route::middleware('role:tamu')->get('/tamu/check', [App\Http\Controllers\TamuController::class, 'index'])->name('tamu.check');

@@ -47,13 +47,19 @@ class ReservasiController extends Controller
             'created_at' => date("Y-m-d H:i:s"),
             'updated_at' => date("Y-m-d H:i:s")
         ];
-        DB::table('tb_kamar')->where('tipe_kamar', $request->tipe_kamar)->update([
-            
-            'jumlah_kamar' => $awal - $request->jumlah_kamar
-        ]);
 
-        // dd($data);
-        DB::table('tb_reservasi')->insert($data);
+        if($request->jumlah_kamar >= $awal){
+            return redirect()->route('tamu.home');
+        } else {
+            DB::table('tb_kamar')->where('tipe_kamar', $request->tipe_kamar)->update([
+            
+                'jumlah_kamar' => $awal - $request->jumlah_kamar
+            ]);
+    
+            // dd($data);
+            DB::table('tb_reservasi')->insert($data);
+        }
+     
         return redirect()->route('tamu.succ');
 
     }

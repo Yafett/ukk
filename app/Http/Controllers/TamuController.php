@@ -89,5 +89,65 @@ class TamuController extends Controller
         return view('tamu.cetaksatu', ['reservasi' => $reservasi]);
     }
 
+    
+    public function checkin($id)
+    {
+
+        DB::table('tb_reservasi')->where('id_reservasi', $id)->update([
+            'status' => 'b'    
+        ]);
+
+        
+        $reservasi = DB::table('tb_reservasi')->get();
+
+        // return view('resepsionis.dashboard', ['reservasi' => $reservasi]);
+
+        return redirect()->route('home.check');
+    }
+   
+    public function checkout($id)
+    {
+
+        DB::table('tb_reservasi')->where('id_reservasi', $id)->update([
+            'status' => 'c'    
+        ]); 
+        
+        $jumlah = DB::table('tb_reservasi')->where('id_reservasi', $id)->value('jumlah_kamar'); 
+        
+        $jml_kamar = DB::table('tb_kamar')->where('id_kamar', $id)->value('jumlah_kamar');
+        
+        DB::table('tb_kamar')->where('id_kamar', $id)->update([
+            'jumlah_kamar' => $jumlah + $jml_kamar
+        ]);
+        
+        $reservasi = DB::table('tb_reservasi')->get();
+
+        // return view('resepsionis.dashboard', ['reservasi' => $reservasi]);
+
+        return redirect()->route('home.check');
+    }
+
+    public function batalkan($id)
+    {
+        
+        $jumlah = DB::table('tb_reservasi')->where('id_reservasi', $id)->value('jumlah_kamar'); 
+        
+        $jml_kamar = DB::table('tb_kamar')->where('id_kamar', $id)->value('jumlah_kamar');
+        
+        DB::table('tb_kamar')->where('id_kamar', $id)->update([
+            'jumlah_kamar' => $jumlah + $jml_kamar
+        ]);
+        
+        DB::table('tb_reservasi')->where('id_reservasi', $id)->update([
+            'status' => 'd'
+        ]); 
+
+        // $reservasi = DB::table('tb_reservasi')->get();
+
+        // return view('resepsionis.dashboard', ['reservasi' => $reservasi]);
+
+        return redirect()->route('home.check');
+    }
+
 
 }

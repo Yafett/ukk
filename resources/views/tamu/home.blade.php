@@ -88,11 +88,11 @@
             <div class="d-flex" style="margin-left: -20px; margin-top: -20px;">
                 <form style="margin-left: 20px;" action="{{ route('reservasi.store') }}" id="myForm" method="POST" DefaultButton="pesan">
                     @csrf
-                    @if (session('success'))
+                    @if (session('no'))
                     <div class="row">
                         <div class="card-body">
-                            <div class="alert alert-success" role="alert" style="margin-left: 15px; width: 690px;">
-                                Data Berhasil di Input
+                            <div class="alert alert-danger" role="alert" style="margin-left: 15px; width: 690px;">
+                                Data tidak diinput, jumlah kamar tidak mencukupi
                                 <a class="bi bi-printer-fill bi-2x" style="color: #155724; " href="/tamu/check"></a>
                                 {{-- <a class="btn btn-lg" href="/login" role="button" style="color: #f7f7f7; background-color : #747778">cetak</a> --}}
                             </div>

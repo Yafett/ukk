@@ -70,7 +70,14 @@ class ResepsionisController extends Controller
         DB::table('tb_reservasi')->where('id_reservasi', $id)->update([
             'status' => 'c'    
         ]); 
-
+        
+        $jumlah = DB::table('tb_reservasi')->where('id_reservasi', $id)->value('jumlah_kamar'); 
+        
+        $jml_kamar = DB::table('tb_kamar')->where('id_kamar', $id)->value('jumlah_kamar');
+        
+        DB::table('tb_kamar')->where('id_kamar', $id)->update([
+            'jumlah_kamar' => $jumlah + $jml_kamar
+        ]);
         
         $reservasi = DB::table('tb_reservasi')->get();
 

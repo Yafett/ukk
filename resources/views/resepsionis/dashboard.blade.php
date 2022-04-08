@@ -110,7 +110,7 @@
                         <input class="btn btn-danger" type="submit" value="check-out">
                     </form>
                     @endif
-                    @if($r->status == 'a' || $r->status == 'b' || $r->status == 'c')
+                    @if($r->status == 'a' || $r->status == 'b')
                     
                     <form action="/resepsionis/status/batal/{{ $r->id_reservasi }}" method="post">
                         {{ csrf_field() }}

@@ -54,15 +54,7 @@ class ReservasiController extends Controller
 
         // dd($data);
         DB::table('tb_reservasi')->insert($data);
-        // return back()->with('success','Data Berhasil di Input');
         return redirect()->route('tamu.succ');
-
-        // if($request->filled('tgl_checkin')) {
-        //     dd('user_id is not empty.');
-        // } else {
-        //     dd('user_id is empty.');
-        //     return redirect()->route('tamu.home', ['data' => $request])->with('success','Data Berhasil di Input');
-        // }
 
     }
 }

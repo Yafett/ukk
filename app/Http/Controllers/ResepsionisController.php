@@ -90,9 +90,11 @@ class ResepsionisController extends Controller
             'jumlah_kamar' => $jumlah + $jml_kamar
         ]);
         
-        DB::table('tb_reservasi')->where('id_reservasi', $id)->delete(); 
+        DB::table('tb_reservasi')->where('id_reservasi', $id)->update([
+            'status' => 'd'
+        ]); 
 
-        $reservasi = DB::table('tb_reservasi')->get();
+        // $reservasi = DB::table('tb_reservasi')->get();
 
         // return view('resepsionis.dashboard', ['reservasi' => $reservasi]);
 

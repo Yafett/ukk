@@ -27,17 +27,18 @@
                     @csrf
 
                     <div class="form-floating">
-                        <input type="date" name="tgl_checkout" class="form-control" id="tgl_checkout" value="" style="width : 250px">
-                        <label for="floatingInputGrid">filter ( tanggal check-out)</label>
+                        <input type="date" name="tgl_checkout" class="form-control" id="tgl_checkout" value="" style="width: 160px;">
+                        <label for="floatingInputGrid">filter ( tgl check-out)</label>
                     </div>
                     <div class="form-floating">
                         {{-- <input type="text" name="nama_tamu" class="form-control" id="tgl_checkin" value="" style="width : 250px">
                         <label for="floatingInputGrid">nama_tamu</label> --}}
                         <select name="status" id="status" class="form-control">
-                            <option selected class="form-select form-check disabled text-muted"
-                            aria-label="disabled select example" disabled>Pilih salah satu status</option>
+                            <option selected class="form-select form-check disabled text-muted" aria-label="disabled select example" disabled>Pilih status</option>
                             <option value="a">belum check in </option>
                             <option value="b">sudah check in </option>
+                            <option value="c">sudah check out </option>
+                            <option value="d">dibatalkan </option>
                             {{-- <option> - tersedia : </option> --}}
                         </select>
                     </div>
@@ -50,7 +51,7 @@
 
                     <div class="form-floating">
                         <input required type="date" name="tgl_checkin" class="form-control" id="tgl_checkin" value="" style="width : 250px">
-                        <label for="floatingInputGrid">filter ( tanggal check-in)</label>
+                        <label for="floatingInputGrid">filter ( tgl check-in)</label>
                     </div>
                     <button class="btn btn-outline-success ml-3" type="submit">Filter</button>
                 </form>
@@ -86,11 +87,14 @@
                     @endif
                     @if ($r->status == 'b')
                     <span class="badge badge-success">sudah checkin</span></td>
-                @endif
-                @if ($r->status == 'c')
-                <span class="badge badge-info">sudah checkout</span></td>
-                @endif
-
+                    @endif
+                    @if ($r->status == 'c')
+                    <span class="badge badge-info">sudah checkout</span></td>
+                    @endif
+                    @if ($r->status == 'd')
+                    <span class="badge badge-secondary">dibatalkan</span></td>
+                    @endif
+                    
                 <td>
                     {{-- <div class="row"> --}}
 
@@ -106,11 +110,13 @@
                         <input class="btn btn-danger" type="submit" value="check-out">
                     </form>
                     @endif
+                    @if($r->status == 'a' || $r->status == 'b' || $r->status == 'c')
+                    
                     <form action="/resepsionis/status/batal/{{ $r->id_reservasi }}" method="post">
                         {{ csrf_field() }}
                         <input class="btn btn-secondary" type="submit" value="batalakan">
                     </form>
-
+                    @endif
                 </td>
             </tr>
 

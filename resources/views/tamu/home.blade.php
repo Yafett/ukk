@@ -26,8 +26,8 @@
 
     <style>
         body {
-                background-image: url('gambar/hotelc.png');
-                background-size: cover;
+            background-image: url('gambar/hotelc.png');
+            background-size: cover;
         }
 
         .jumbotron {
@@ -70,48 +70,47 @@
 <body>
 
     @if (Route::has('login'))
-        @auth
+    @auth
 
-            <main>
-            @endauth
-    @endif
+    <main>
+        @endauth
+        @endif
 
-    {{-- Jumbotron --}}
-    <div class="jumbotron" style="height: 92.5vh; margin-top : 15px;">
-        <h1 class="display-4 text-dark" style="margin-top : 70px;">Tadika Mesra</h1>
-        <p class="lead">Hotel anak, membawa anak dalam kebahagiaan dan keceriaan. </p>
-        {{-- <hr class="my-4"> --}}
-        {{-- <p>It uses utility classes for typography and spacing to space content out within the larger container.</p> --}}
+        {{-- Jumbotron --}}
+        <div class="jumbotron" style="height: 92.5vh; margin-top : 15px;">
+            <h1 class="display-4 text-dark" style="margin-top : 70px;">Tadika Mesra</h1>
+            <p class="lead">Hotel anak, membawa anak dalam kebahagiaan dan keceriaan. </p>
+            {{-- <hr class="my-4"> --}}
+            {{-- <p>It uses utility classes for typography and spacing to space content out within the larger container.</p> --}}
 
-        @if (Route::has('login'))
+            @if (Route::has('login'))
             @auth
-                <div class="d-flex" style="margin-left: -20px; margin-top: -20px;">
-                    <form style="margin-left: 20px;" action="{{ route('reservasi.store') }}" id="myForm" method="POST"
-                        DefaultButton="pesan">
-                        @csrf
-                        @if (session('success'))
-                            <div class="row">
-                                <div class="card-body">
-                                    <div class="alert alert-success" role="alert" style="margin-left: 15px; width: 690px;">
-                                        Data Berhasil di Input
-                                        <a class="bi bi-printer-fill bi-2x" style="color: #155724; " href="/tamu/check"></a>
-                                        {{-- <a class="btn btn-lg" href="/login" role="button" style="color: #f7f7f7; background-color : #747778">cetak</a> --}}
-                                    </div>
-                                </div>
+            <div class="d-flex" style="margin-left: -20px; margin-top: -20px;">
+                <form style="margin-left: 20px;" action="{{ route('reservasi.store') }}" id="myForm" method="POST" DefaultButton="pesan">
+                    @csrf
+                    @if (session('success'))
+                    <div class="row">
+                        <div class="card-body">
+                            <div class="alert alert-success" role="alert" style="margin-left: 15px; width: 690px;">
+                                Data Berhasil di Input
+                                <a class="bi bi-printer-fill bi-2x" style="color: #155724; " href="/tamu/check"></a>
+                                {{-- <a class="btn btn-lg" href="/login" role="button" style="color: #f7f7f7; background-color : #747778">cetak</a> --}}
                             </div>
-                </div>
+                        </div>
+                    </div>
+            </div>
             @endif
 
 
             @if ($errors->any())
-                <div class="alert alert-danger">
-                    <strong>Maaf</strong> Data yang anda inputkan bermasalah.<br><br>
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
+            <div class="alert alert-danger">
+                <strong>Maaf</strong> Data yang anda inputkan bermasalah.<br><br>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
             @endif
 
             <div class="row g-1 ml-2" style="margin-top: 30px">
@@ -129,21 +128,19 @@
                 </div>
                 <div class="col-md">
                     <div class="form-floating">
-                        <input required type="number" min="1" name="jumlah_kamar" class="form-control" id="jumlah_kamar"
-                            value="">
+                        <input required type="number" min="1" name="jumlah_kamar" class="form-control" id="jumlah_kamar" value="">
                         <label for="floatingInputGrid">Jumlah Kamar</label>
                     </div>
                 </div>
                 <div class="col-md">
                     <div class="form-floating">
-                        <button class="btn" onclick="isEmpty()" type="submit"
-                            style="height: 58px;color:#f7f7f7; background-color:#b5e61d">Kirim</button>
+                        <button class="btn" onclick="isEmpty()" type="submit" style="height: 58px;color:#f7f7f7; background-color:#b5e61d">Kirim</button>
 
                     </div>
                 </div>
             </div>
         </div>
- 
+
         <div style="margin-left: 10px; width : 57%; font-weight : 600" class="collapse  text-white" id="myCollapsible">
             <div class="form-group row tmbhdikit">
                 <div class="display-6 mt-5 mb-5" style="font-weight: 400">
@@ -151,8 +148,7 @@
                 </div>
                 <label for="pemesan" class="col-sm-2 col-form-label">Nama Pemesan</label>
                 <div class="col-sm-10">
-                    <input required type="text" name="pemesan" class="input-group form-control" id="pemesan"
-                        placeholder="Nama Pemesan" value="">
+                    <input required type="text" name="pemesan" class="input-group form-control" id="pemesan" placeholder="Nama Pemesan" value="">
                 </div>
             </div>
             <div class="form-group row py-2">
@@ -177,17 +173,22 @@
                 <label for="tipe_kamar" class="col-sm-2 col-form-label">Tipe Kamar</label>
                 <div class="col-sm-10">
                     <select name="tipe_kamar" id="tipe_kamar" class="form-control">
-                        <option selected class="form-select form-check disabled text-muted"
-                            aria-label="disabled select example" disabled>Pilih salah satu tipe kamar</option>
+                        <option selected class="form-select form-check disabled text-muted" aria-label="disabled select example" disabled>Pilih salah satu tipe kamar</option>
                         @foreach ($superior as $s)
+                        @if($s->jumlah_kamar <= 0 ) <option selected class="form-select form-check disabled text-muted" aria-label="disabled select example" disabled>Superior - tidak tersedia</option>
+                            @else
                             <option value={{ $s->tipe_kamar }}>{{ $s->tipe_kamar }} - tersedia :
                                 {{ $s->jumlah_kamar }}</option>
-                        @endforeach
-                        @foreach ($deluxe as $d)
-                            <option value={{ $d->tipe_kamar }}>{{ $d->tipe_kamar }} - tersedia :
-                                {{ $d->jumlah_kamar }}</option>
-                        @endforeach
-                        {{-- <option value="deluxe">Deluxe</option> --}}
+                            @endif
+                            @endforeach
+                            @foreach ($deluxe as $d)
+                            @if($d->jumlah_kamar <= 0 ) <option selected class="form-select form-check disabled text-muted" aria-label="disabled select example" disabled>Deluxe - tidak tersedia</option>
+                                @else
+                                <option value={{ $d->tipe_kamar }}>{{ $d->tipe_kamar }} - tersedia :
+                                    {{ $d->jumlah_kamar }}</option>
+                                @endif
+                                @endforeach
+                                {{-- <option value="deluxe">Deluxe</option> --}}
                     </select>
                 </div>
             </div>
@@ -200,103 +201,93 @@
             <button class="btn mb-5 " style="color: #202020; background-color : #b5e61d">Konfirmasi Pemesanan</button>
             </form>
         </div>
-    @else
+        @else
         <a class="btn btn-lg" href="/login" role="button" style="color: #ffffff; background-color : #b5e61d">Pesan Sekarang </a>
 
-    @endauth
-    @endif
+        @endauth
+        @endif
 
-    </div>
+        </div>
 
-    <nav class="navbar fixed-top navbar-dark navbar-expand-md" style="background-color: #b5e61d">
-        <div class="container">
-            {{-- <a class="navbar-brand" href="{{ url('/') }}">
+        <nav class="navbar fixed-top navbar-dark navbar-expand-md" style="background-color: #b5e61d">
+            <div class="container">
+                {{-- <a class="navbar-brand" href="{{ url('/') }}">
                 Tadika Mesra
                 </a> --}}
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="{{ __('Toggle navigation') }}">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-            <div class="collapse navbar-collapse " id="navbarSupportedContent">
-                <!-- Left Side Of Navbar -->
-                <ul class="navbar-nav me-auto">
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="navbar-nav me-auto">
 
-                </ul>
+                    </ul>
 
-                <!-- Right Side Of Navbar -->
-                <ul class="navbar-nav ms-auto">
-                    @if (Route::has('login'))
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav ms-auto">
+                        @if (Route::has('login'))
                         @auth
-                            {{-- <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a> --}}
-                            <a href="/home" style="color : white; text-decoration : none;"
-                                class="ml-3 text-sm text-gray-700 dark:text-gray-500 underline p-1">Home</a>
-                            <a href="/home/kamar" style="color : white; text-decoration : none;"
+                        {{-- <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a> --}}
+                        <a href="/home" style="color : white; text-decoration : none;" class="ml-3 text-sm text-gray-700 dark:text-gray-500 underline p-1">Home</a>
+                        <a href="/home/kamar" style="color : white; text-decoration : none;" class="ml-3 text-sm text-gray-700 dark:text-gray-500 underline p-1">Kamar</a>
+                        <a href="/home/fasilitas" style="color : white; text-decoration : none;" class="ml-3 text-sm text-gray-700 dark:text-gray-500 underline p-1">Fasilitas</a>
+                        <a href="/home/check" style="color : white; text-decoration : none;" class="ml-3 text-sm text-gray-700 dark:text-gray-500 underline p-1">Cetak</a>
+
+                        <a style="color : white; text-decoration : none;" class="ml-3 text-sm text-gray-700 dark:text-gray-500 underline p-1" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                        @else
+                        <a href="/home" style="color : white; text-decoration : none;" class="ml-3 text-sm text-gray-700 dark:text-gray-500 underline p-1">Home</a>
+                        <a href="/home/kamar" style="color : white; text-decoration : none;"
                                 class="ml-3 text-sm text-gray-700 dark:text-gray-500 underline p-1">Kamar</a>
                             <a href="/home/fasilitas" style="color : white; text-decoration : none;"
                                 class="ml-3 text-sm text-gray-700 dark:text-gray-500 underline p-1">Fasilitas</a>
-                            <a href="/home/check" style="color : white; text-decoration : none;"
-                                class="ml-3 text-sm text-gray-700 dark:text-gray-500 underline p-1">Cetak</a>
 
-                            <a style="color : white; text-decoration : none;"
-                                class="ml-3 text-sm text-gray-700 dark:text-gray-500 underline p-1"
-                                href="{{ route('logout') }}" onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
+                        <a href="{{ route('login') }}" style="color : white; text-decoration : none;" class="ml-3 text-sm text-gray-700 dark:text-gray-500 underline p-1">Log in</a>
+                        @if (Route::has('register'))
+                        <a href="{{ route('register') }}" style="color : white; text-decoration : none;" class="ml-3 text-sm text-gray-700 dark:text-gray-500 underline p-1">Register</a>
+                        @endif
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                        @else
-                            <a href="/home" style="color : white; text-decoration : none;"
-                                class="ml-3 text-sm text-gray-700 dark:text-gray-500 underline p-1">Home</a>
-                            {{-- <a href="/home/kamar" style="color : white; text-decoration : none;"
-                                class="ml-3 text-sm text-gray-700 dark:text-gray-500 underline p-1">Kamar</a>
-                            <a href="/home/fasilitas" style="color : white; text-decoration : none;"
-                                class="ml-3 text-sm text-gray-700 dark:text-gray-500 underline p-1">Fasilitas</a> --}}
-
-                            <a href="{{ route('login') }}" style="color : white; text-decoration : none;"
-                                class="ml-3 text-sm text-gray-700 dark:text-gray-500 underline p-1">Log in</a>
-                            @if (Route::has('register'))
-                                <a href="{{ route('register') }}" style="color : white; text-decoration : none;"
-                                    class="ml-3 text-sm text-gray-700 dark:text-gray-500 underline p-1">Register</a>
-                            @endif
-
-                            {{-- <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a> --}}
+                        {{-- <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a> --}}
                         @endauth
+                </div>
+                @endif
+                </ul>
             </div>
-            @endif
-            </ul>
-        </div>
-        </div>
-    </nav>
+            </div>
+        </nav>
 
 
 
-    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 
-    <script>
-        $('.datepicker').datepicker();
+        <script>
+            $('.datepicker').datepicker();
 
-        function isEmpty() {
+            function isEmpty() {
 
-            if (document.getElementById('jumlah_kamar').value.length > 0) {
+                if (document.getElementById('jumlah_kamar').value.length > 0) {
 
-                if (document.getElementById('tgl_checkin').value.length > 0) {
+                    if (document.getElementById('tgl_checkin').value.length > 0) {
 
-                    if (document.getElementById('tgl_checkout').value.length > 0) {
+                        if (document.getElementById('tgl_checkout').value.length > 0) {
 
-                        $('#myCollapsible').collapse('show');
+                            $('#myCollapsible').collapse('show');
+
+                        }
 
                     }
 
                 }
-
             }
-        }
-    </script>
+
+        </script>
 
     </main>
 
